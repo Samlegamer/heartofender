@@ -1,110 +1,53 @@
 package fr.samlegamer.heartofender.block;
 
-import javax.annotation.Nullable;
-
-import fr.samlegamer.heartofender.inits.ModBlocks;
-import net.minecraft.block.AbstractBlock;
+import fr.samlegamer.heartofender.entity.EntityHerobrine;
+import fr.samlegamer.heartofender.inits.BlocksMod;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.BlockSkull;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.monster.ZombieEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ToolType;
 
 public class HerobrineHeadBlock extends Block
-{	
-    public HerobrineHeadBlock(Material materialIn, int toolStrength, float hardness, float resistance, SoundType sound) {
-        super(
-    		AbstractBlock.Properties
-    			.of(materialIn)
-    			.sound(sound)
-    			.strength(hardness, resistance)
-    			.harvestTool(ToolType.PICKAXE)
-    			.harvestLevel(toolStrength)
-    			.requiresCorrectToolForDrops()
-    			
-		);
-    }
-    
-    
-    //this code require to summon Herobrine Entity
-    @SuppressWarnings("unused")
+{
+	public HerobrineHeadBlock(String name, Material materialIn)
+	{
+		super(materialIn);
+		setUnlocalizedName(name);
+		setRegistryName(name);
+        this.setSoundType(SoundType.STONE);
+	}
+	
+	//this code, spawn entity herobrine in the world to summon
 	@Override
-    public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack)
-    {
-    	BlockState diamond_block = worldIn.getBlockState(pos.below());
-		BlockState azurium_block = worldIn.getBlockState(pos.below(2));
-		BlockState diamond_block1 = worldIn.getBlockState(pos.below().east());
-		BlockState diamond_block2 = worldIn.getBlockState(pos.below().west());
-		BlockState diamond_block3 = worldIn.getBlockState(pos.below().north());
-		BlockState diamond_block4 = worldIn.getBlockState(pos.below().south());
-		
-		//if(!worldIn.isClientSide) {
-		if(placer instanceof PlayerEntity)
-		{
-			
-			if(diamond_block.getBlock()!= Blocks.AIR && azurium_block.getBlock()!= Blocks.AIR)
-			{
-				
-				if(diamond_block.getBlock() == Blocks.DIAMOND_BLOCK && azurium_block.getBlock() == ModBlocks.AZURIUM_BLOCK.get())
-				{
-										
-					ZombieEntity herobrine = new ZombieEntity(worldIn);
-									
-					
-					herobrine.setPos(pos.getX(), pos.getY(), pos.getZ());
-					
-					worldIn.destroyBlock(pos, false);
-					worldIn.destroyBlock(pos.below(), false);
-					worldIn.destroyBlock(pos.below(2), false);
-					worldIn.destroyBlock(pos.below().east(), false);
-					worldIn.destroyBlock(pos.below().west(), false);
-					worldIn.destroyBlock(pos.below().north(), false);
-					worldIn.destroyBlock(pos.below().south(), false);
-
-					
-					worldIn.addFreshEntity(herobrine);
-					
-										
-				}
-			//}
-		}
-	  }
-    }
-
-    
-    
-    
-    
-    /* OLD
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack)
+	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
 	{
 		
-		BlockState diamond_block = worldIn.getBlockState(pos.down());
-		BlockState azurium_block = worldIn.getBlockState(pos.down(2));
-		BlockState diamond_block1 = worldIn.getBlockState(pos.down().east());
-		BlockState diamond_block2 = worldIn.getBlockState(pos.down().west());
-		BlockState diamond_block3 = worldIn.getBlockState(pos.down().north());
-		BlockState diamond_block4 = worldIn.getBlockState(pos.down().south());
+		IBlockState diamond_block = worldIn.getBlockState(pos.down());
+		IBlockState azurium_block = worldIn.getBlockState(pos.down(2));
+		IBlockState diamond_block1 = worldIn.getBlockState(pos.down().east());
+		IBlockState diamond_block2 = worldIn.getBlockState(pos.down().west());
+		IBlockState diamond_block3 = worldIn.getBlockState(pos.down().north());
+		IBlockState diamond_block4 = worldIn.getBlockState(pos.down().south());
 
-		if(!worldIn.isClientSide)
+		if(!worldIn.isRemote)
 		{
-		if(placer instanceof PlayerEntity)
+		if(placer instanceof EntityPlayer)
 		{
 			
 			if(diamond_block.getBlock()!= Blocks.AIR && azurium_block.getBlock()!= Blocks.AIR)
 			{
 				
-				if(diamond_block.getBlock() == Blocks.DIAMOND_BLOCK && azurium_block.getBlock() == ModBlocks.AZURIUM_BLOCK.get())
+				if(diamond_block.getBlock() == Blocks.DIAMOND_BLOCK && azurium_block.getBlock() == BlocksMod.azurium_block)
 				{
 										
-					ZombieEntity herobrine = new ZombieEntity(worldIn);
+					EntityHerobrine herobrine = new EntityHerobrine(worldIn);
 									
 					
 					herobrine.setPosition(pos.getX(), pos.getY(), pos.getZ());
@@ -118,12 +61,12 @@ public class HerobrineHeadBlock extends Block
 					worldIn.destroyBlock(pos.down().south(), false);
 
 					
-					worldIn.addFreshEntity(herobrine);
+					worldIn.spawnEntity(herobrine);
 					
 										
 				}
 			}
 		}
 	  }
-	} */
+	}
 }
