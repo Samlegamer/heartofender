@@ -1,0 +1,23 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "XYX",
+    "YZY",
+    "XYX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:dye",
+      "data": 4
+    },
+    "Y": {
+      "item": "minecraft:lapis_block"
+    },
+    "Z": {
+      "item": "minecraft:apple"
+    }
+  },
+  "result": {
+    "item": "heartofender:lapis_apple"
+  }
+}
