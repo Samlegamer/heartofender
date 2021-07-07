@@ -1,0 +1,6 @@
+{
+    "parent": "block/crop",
+    "textures": {
+        "crop": "heartofender:blocks/heart_wart_block_stage_0"
+    }
+}
