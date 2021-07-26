@@ -1,67 +1,39 @@
 package fr.samlegamer.heartofender.core;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import fr.samlegamer.heartofender.inits.EntitiesMod;
-import fr.samlegamer.heartofender.inits.forfluids.ModBlocks;
-import fr.samlegamer.heartofender.inits.forfluids.ModItems;
-import fr.samlegamer.heartofender.utils.HeartofEnderCreativeTabs;
-import fr.samlegamer.heartofender.utils.IHasModel;
-import fr.samlegamer.heartofender.utils.RegistryHandler;
-import fr.samlegamer.heartofender.utils.RendersFluids;
-import fr.samlegamer.heartofender.utils.RendersMod;
-import fr.samlegamer.heartofender.world.worldgen.fortress.GenStructure;
-import fr.samlegamer.heartofender.world.worldgen.fortress.StructureHeartBridgePieces;
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.world.gen.structure.MapGenStructureIO;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fluids.FluidRegistry;
+import fr.samlegamer.heartofender.block.HoEBlockRegistry;
+import fr.samlegamer.heartofender.item.HoeItemsRegistry;
+import fr.samlegamer.heartofender.utils.ModeTabHeartofEnder;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(modid = References.MODID, name = References.NAME, version = References.VERSION)
+@Mod(value = HeartofEnder.MODID)
 public class HeartofEnder
 {
-	@Instance(References.MODID)
-	public static HeartofEnder instance;
+	public static final String MODID = "heartofender";
 	
-	public static final Logger LOGGER = LogManager.getLogger(References.MODID);
+	public static final ModeTabHeartofEnder CREATIVE_TAB_BLOCKS = new ModeTabHeartofEnder("heartofender_blocks");
+	public static final ModeTabHeartofEnder CREATIVE_TAB_ITEMS = new ModeTabHeartofEnder("heartofender_items");
 	
-	@SidedProxy(clientSide = References.CLIENTPROXY, serverSide = References.SEVERPROXY)
-	public static CommonProxy proxy;
-	
-	static { FluidRegistry.enableUniversalBucket(); }
-	
-	public static final HeartofEnderCreativeTabs CREATIVE_TAB_BLOCKS = new HeartofEnderCreativeTabs("heartofender_blocks");
-	public static final HeartofEnderCreativeTabs CREATIVE_TAB_ITEMS = new HeartofEnderCreativeTabs("heartofender_items");
-	
-	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event)
+	public HeartofEnder()
 	{
-		proxy.preInit();
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonProxySetup);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientProxySetup);
+
+		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		HoEBlockRegistry.REGISTRY_BLOCK.register(bus);
+		HoeItemsRegistry.REGISTRY_ITEM.register(bus);
 	}
 	
-	@Mod.EventHandler
-	public void init(FMLInitializationEvent event)
+	private void commonProxySetup(FMLCommonSetupEvent event)
 	{
-		proxy.init();
+		
 	}
 	
-	@Mod.EventHandler
-	public void postInit(FMLPostInitializationEvent event)
+	private void clientProxySetup(FMLClientSetupEvent event)
 	{
-		proxy.postInit();
+		
 	}
 }
