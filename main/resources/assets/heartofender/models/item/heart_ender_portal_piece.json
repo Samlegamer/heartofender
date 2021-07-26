@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "heartofender:items/heart_ender_portal_piece"
+  }
+}
