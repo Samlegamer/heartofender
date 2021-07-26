@@ -1,7 +1,0 @@
-{
-    "parent": "heartofender:block/green_fire_side",
-    "textures": {
-        "particle": "heartofender:blocks/greenfire_layer_1",
-        "fire": "heartofender:blocks/greenfire_layer_1"
-    }
-}
