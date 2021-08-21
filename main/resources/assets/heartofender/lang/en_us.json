@@ -8,7 +8,12 @@
 	"item.heartofender.purple_glowstone_dust": "Purple Glowstone Dust",
 	"item.heartofender.milathium": "Milathium",
 	"item.heartofender.milathium_ingot": "Milathium Ingot",
-	"item.heartofender.heart_wart": "Heart Wart",
+	"item.heartofender.blue_magma_cream": "Blue Magma Cream",
+	"item.heartofender.spawn_egg_heart_blaze": "Spawn Egg Heart Blaze",
+	"item.heartofender.spawn_egg_ender_kid": "Spawn Egg Ender Kid",
+	"item.heartofender.spawn_egg_heart_ghast": "Spawn Egg Heart Ghast",	
+	"item.heartofender.spawn_egg_blue_magma_cube": "Spawn Egg Blue Magma Cube",	
+	
 
 	//Food
 	"item.heartofender.diamond_apple": "Diamond Apple",
@@ -19,12 +24,22 @@
 	"item.heartofender.azurium_leggings": "Azurium Leggings",
 	"item.heartofender.azurium_boots": "Azurium Boots",
 	
+	"item.heartofender.milathium_helmet": "Milathium Helmet",
+	"item.heartofender.milathium_chestplate": "Milathium Chesplate",
+	"item.heartofender.milathium_leggings": "Milathium Leggings",
+	"item.heartofender.milathium_boots": "Milathium Boots",
+	
 	//Weapons of Tools
 	"item.heartofender.azurium_sword": "Azurium Sword",
 	"item.heartofender.azurium_pickaxe": "Azurium Pickaxe",
 	"item.heartofender.azurium_axe": "Azurium Axe",
 	"item.heartofender.azurium_shovel": "Azurium Shovel",
-	    
+	
+	"item.heartofender.milathium_sword": "Milathium Sword",
+	"item.heartofender.milathium_pickaxe": "Milathium Pickaxe",
+	"item.heartofender.milathium_axe": "Milathium Axe",
+	"item.heartofender.milathium_shovel": "Milathium Shovel",
+	
 	//Block
 	"block.heartofender.heart_ender_portal_block": "Heart Ender Portal Block",
 	"block.heartofender.dark_end_stone": "Dark End Stone",
@@ -39,6 +54,12 @@
 	"block.heartofender.purple_glowstone": "Purple Glowstone",
 	"block.heartofender.milathium_block": "Milathium Block",
 	"block.heartofender.milathium_ore": "Milathium Ore",
+	"block.heartofender.heart_ender_wart_block": "Heart Ender Wart",
+	
+	//Entities
+	"entity.heartofender.ender_kid": "Ender Kid",
+	"entity.heartofender.heart_blaze": "Heart Blaze",
+	"entity.heartofender.heart_ghast": "Heart Ghast",	
 
 	//creative tabs
 	"itemGroup.heartofender_blocks": "Heart of Ender Blocks",
