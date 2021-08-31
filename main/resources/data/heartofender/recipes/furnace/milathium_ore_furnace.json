@@ -1,9 +1,0 @@
-{
-    "type": "minecraft:smelting",
-    "ingredient": {
-        "item": "heartofender:milathium_ore"
-    },
-    "result": "heartofender:milathium",
-    "experience": 0.5,
-    "cookingtime": 200
-}
