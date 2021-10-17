@@ -1,2 +1,2 @@
-# heartofender-1.16.5
+# heartofender
 Original Code of Heart of Ender Mod
