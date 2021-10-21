@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "heartofender:azurium_ingot"
+        },
+        "title": {
+            "translate": "titleadvancements.mineazurium.desc"
+        },
+        "description": {
+            "translate": "description.mineazurium"
+        }
+    },
+    "parent": "heartofender:core/root",
+    "criteria": {
+        "mine_azurium": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "heartofender:azurium_nuggets"
+                    }
+                ]
+            }
+        }
+    }
+}
