@@ -1,6 +1,0 @@
-{
-    "variants": {
-        "axis=z": { "model": "heartofender:portal_dim_ew" },
-        "axis=x": { "model": "heartofender:portal_dim_ns" }
-    }
-}
