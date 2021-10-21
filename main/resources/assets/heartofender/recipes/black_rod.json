@@ -1,0 +1,23 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:coal",
+      "data": 0
+
+    },
+    "Y": {
+      "item": "minecraft:blaze_rod",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "heartofender:black_rod",
+    "data": 0
+  }
+}
