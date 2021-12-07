@@ -1,0 +1,109 @@
+{
+  "surface_builder": "heartofender:heartofender_wastes",
+  "depth": 0.1,
+  "scale": 0.2,
+  "temperature": 2,
+  "downfall": 0,
+  "precipitation": "none",
+  "category": "nether",
+  "player_spawn_friendly": false,
+  "effects": {
+    "sky_color": 0,
+    "fog_color": 7936881,
+    "water_color": 4159204,
+    "water_fog_color": 329011,
+    "ambient_sound": "minecraft:ambient.nether_wastes.loop",
+    "mood_sound": {
+      "sound": "minecraft:ambient.nether_wastes.mood",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    },
+    "additions_sound": {
+      "sound": "minecraft:ambient.nether_wastes.additions",
+      "tick_chance": 0.0111
+    },
+    "music": {
+      "sound": "minecraft:music.nether.nether_wastes",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": false
+    }
+  },
+  "starts": [
+    "minecraft:ruined_portal_nether",
+    "minecraft:fortress",
+    "minecraft:bastion_remnant"
+  ],
+  "spawners": {
+    "monster": [
+      {
+        "type": "heartofender:heart_ghast",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "heartofender:ender_kid",
+        "weight": 60,
+        "minCount": 4,
+        "maxCount": 8
+      },
+      {
+        "type": "heartofender:blue_magma_cube",
+        "weight": 2,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "creature": [
+      {
+        "type": "minecraft:strider",
+        "weight": 60,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:nether_cave"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "heartofender:spring_open",
+      "heartofender:patch_green_fire",
+      //"minecraft:patch_soul_fire",
+      //"heartofender:purple_glowstone_extra",
+      "heartofender:purple_glowstone",
+      //"minecraft:brown_mushroom_nether",
+      //"minecraft:red_mushroom_nether",
+      "heartofender:ore_blue_magma",
+      "heartofender:spring_closed",
+      "heartofender:ore_dead_sand",
+      //"minecraft:ore_blackstone",
+      //"minecraft:ore_gold_nether",
+      "heartofender:ore_milathium_ore",
+      "minecraft:ore_debris_large",
+      "minecraft:ore_debris_small"
+    ],
+    [
+      "heartofender:spring_lava",
+      "minecraft:brown_mushroom_normal",
+      "minecraft:red_mushroom_normal"
+    ]
+  ]
+}
