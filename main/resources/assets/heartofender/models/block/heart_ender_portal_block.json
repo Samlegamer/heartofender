@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "heartofender:blocks/heart_ender_portal_block"
-  }
-}
