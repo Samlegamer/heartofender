@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "heartofender:azurium_nugget"
+        }
+    },
+    "result": {
+        "item": "heartofender:azurium_ingot",
+        "count": 1
+    }
+}
