@@ -1,0 +1,50 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:count",
+      "config": {
+        "count": 8
+      }
+    },
+    "feature": {
+      "type": "minecraft:decorated",
+      "config": {
+        "decorator": {
+          "type": "minecraft:square",
+          "config": {}
+        },
+        "feature": {
+          "type": "minecraft:decorated",
+          "config": {
+            "decorator": {
+              "type": "minecraft:range",
+              "config": {
+                "maximum": 128,
+                "bottom_offset": 4,
+                "top_offset": 8
+              }
+            },
+            "feature": {
+              "type": "minecraft:spring_feature",
+              "config": {
+                "state": {
+                  "Name": "heartofender:green_lava_block",
+                  "Properties": {
+                    "falling": "true"
+                  }
+                },
+                "rock_count": 4,
+                "hole_count": 1,
+                "requires_block_below": false,
+                "valid_blocks": [
+                  "heartofender:dark_end_stone"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
