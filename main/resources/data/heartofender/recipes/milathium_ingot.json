@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#R#",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "heartofender:milathium"
+        },
+        "R": {
+            "item": "heartofender:green_lava_bucket"
+        }
+    },
+    "result": {
+        "item": "heartofender:milathium_ingot",
+        "count": 1
+    }
+}
