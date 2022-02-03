@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "XXY",
+    "X Z",
+    "YZZ"
+  ],
+  "key": {
+    "X": {
+      "item": "heartofender:black_rod"
+    },
+    "Y": {
+      "item": "heartofender:milathium_ingot"
+    },
+    "Z": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "heartofender:milathium_bow"
+  }
+}

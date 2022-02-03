@@ -1,0 +1,23 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "heartofender:milathium",
+      "data": 0
+
+    },
+    "Y": {
+      "item": "forge:bucketfilled",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "heartofender:milathium_ingot",
+    "data": 0
+  }
+}
