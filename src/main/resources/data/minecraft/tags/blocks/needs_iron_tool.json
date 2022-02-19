@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "heartofender:heart_ender_portal_block",
+    "heartofender:azurium_ore",
+	"heartofender:deepslate_azurium_ore",
+    "heartofender:azurium_block",
+    "heartofender:blue_magma_block",
+    "heartofender:herobrine_head"
+  ]
+}
