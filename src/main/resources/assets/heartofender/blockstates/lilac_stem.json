@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "heartofender:block/lilac_stem_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "heartofender:block/lilac_stem"
+    },
+    "axis=z": {
+      "model": "heartofender:block/lilac_stem_horizontal",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "heartofender:block/leafy_slab"
+    },
+    "type=double": {
+      "model": "heartofender:block/leafy_planks"
+    },
+    "type=top": {
+      "model": "heartofender:block/leafy_slab_top"
+    }
+  }
+}

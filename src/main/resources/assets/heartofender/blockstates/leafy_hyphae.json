@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "heartofender:block/leafy_hyphae",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "heartofender:block/leafy_hyphae"
+    },
+    "axis=z": {
+      "model": "heartofender:block/leafy_hyphae",
+      "x": 90
+    }
+  }
+}
