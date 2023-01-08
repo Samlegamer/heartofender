@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "heartofender:blocks/dark_end_stone",
-    "top": "heartofender:blocks/dark_end_stone",
-    "side": "heartofender:blocks/dark_end_stone"
-  }
-}
