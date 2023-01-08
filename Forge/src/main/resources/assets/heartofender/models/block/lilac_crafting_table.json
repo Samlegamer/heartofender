@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "heartofender:blocks/lilac_crafting_table_front",
+    "up": "heartofender:blocks/lilac_crafting_table_top",
+    "down": "heartofender:blocks/lilac_planks",
+    "north": "heartofender:blocks/lilac_crafting_table_front",
+    "south": "heartofender:blocks/lilac_crafting_table_side",
+    "west": "heartofender:blocks/lilac_crafting_table_front",
+    "east": "heartofender:blocks/lilac_crafting_table_side"
+  }
+}

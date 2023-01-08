@@ -1,0 +1,12 @@
+{
+  "parent": "heartofender:block/quark/chest",
+  "textures": {
+    "particle": "heartofender:blocks/chest/lilac_face",
+    "north": "heartofender:blocks/chest/lilac_back",
+    "south": "heartofender:blocks/chest/lilac_face",
+    "east": "heartofender:blocks/chest/lilac_cote_l",
+    "west": "heartofender:blocks/chest/lilac_cote_r",
+    "up": "heartofender:blocks/chest/lilac_top",
+    "down": "heartofender:blocks/chest/lilac_bottom"
+  }
+}
