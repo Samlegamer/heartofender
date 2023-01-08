@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "heartofender:block/cut_dead_soul_sandstone_slab" },
+        "type=top": { "model": "heartofender:block/cut_dead_soul_sandstone_slab_top" },
+        "type=double": { "model": "heartofender:block/cut_dead_soul_sandstone" }
+    }
+}

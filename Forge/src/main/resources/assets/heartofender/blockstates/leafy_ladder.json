@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "heartofender:block/leafy_ladder" },
+        "facing=east":  { "model": "heartofender:block/leafy_ladder", "y": 90 },
+        "facing=south": { "model": "heartofender:block/leafy_ladder", "y": 180 },
+        "facing=west":  { "model": "heartofender:block/leafy_ladder", "y": 270 }
+    }
+}
