@@ -1,0 +1,16 @@
+{
+    "parent": "heartofender:block/quark/chest_model",
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 15, 14, 15 ],
+            "faces": {
+                "down":  { "texture": "#down", "cullface": "down" },
+                "up":    { "texture": "#up", "cullface": "up" },
+                "north": { "texture": "#north", "cullface": "north" },
+                "south": { "texture": "#south", "cullface": "south" },
+                "west":  { "texture": "#west", "cullface": "west" },
+                "east":  { "texture": "#east", "cullface": "east" }
+            }
+        }
+    ]
+}

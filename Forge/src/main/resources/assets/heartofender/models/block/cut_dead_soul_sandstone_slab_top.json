@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab_top",
+    "textures": {
+        "bottom": "heartofender:blocks/dead_soul_sandstone_top",
+        "top": "heartofender:blocks/dead_soul_sandstone_top",
+        "side": "heartofender:blocks/cut_dead_soul_sandstone"
+    }
+}

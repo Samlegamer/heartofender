@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_inventory",
+    "textures": {
+        "wall": "heartofender:blocks/dead_soul_sandstone_bricks"
+    }
+}
