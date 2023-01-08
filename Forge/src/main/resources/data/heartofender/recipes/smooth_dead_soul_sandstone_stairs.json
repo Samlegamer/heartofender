@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "heartofender:smooth_dead_soul_sandstone"
+    }
+  },
+  "result": {
+    "item": "heartofender:smooth_dead_soul_sandstone_stairs",
+    "count": 4
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "quark"
+    },
+    {
+      "type": "quark:flag",
+      "flag": "soul_sandstone"
+    }
+  ]
+} 

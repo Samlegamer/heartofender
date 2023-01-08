@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG", "GTG", "GGG"
+  ],
+  "key": {
+    "G": {"item": "minecraft:gold_nugget"},
+    "T": {"item": "heartofender:lilac_torch"}
+  },
+  "result": {
+    "item": "heartofender:purple_gold_lantern"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "charm"
+    },
+    {
+      "type": "charm:module_enabled",
+      "module": "charm:gold_lanterns"
+    }
+  ]
+}

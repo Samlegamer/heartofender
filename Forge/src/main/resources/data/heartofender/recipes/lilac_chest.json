@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "acacia_chest",
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "heartofender:lilac_planks"
+    }
+  },
+  "result": {
+    "item": "heartofender:lilac_chest",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "quark"
+    },
+    {
+      "type": "quark:flag",
+      "flag": "variant_chests"
+    }
+  ]
+} 
