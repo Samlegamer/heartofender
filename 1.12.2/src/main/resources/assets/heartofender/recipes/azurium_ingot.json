@@ -1,0 +1,17 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "heartofender:azurium_nuggets"
+    }
+  },
+  "result": {
+    "item": "heartofender:azurium_ingot",
+    "data": 0
+  }
+}

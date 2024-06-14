@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "heartofender:milathium_ingot"
+        },
+        "title": {
+            "translate": "titleadvancements.lavaalchymiefusion.desc"
+        },
+        "description": {
+            "translate": "description.lavaalchymiefusion"
+        }
+    },
+    "parent": "heartofender:core/mysterial_ore",
+    "criteria": {
+        "diamond_apple": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "heartofender:milathium_ingot"
+                    }
+                ]
+            }
+        }
+    }
+}

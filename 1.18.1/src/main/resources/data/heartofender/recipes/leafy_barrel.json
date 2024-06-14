@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PSP",
+        "P P",
+        "PSP"
+    ],
+    "key": {
+        "S": {
+            "item": "heartofender:leafy_slab"
+        },
+        "P": {
+            "item": "heartofender:leafy_planks"
+        }
+    },
+    "result": {
+        "item": "heartofender:leafy_barrel"
+    },
+    "conditions": [
+	{
+      "type": "forge:mod_loaded",
+      "modid": "charm"
+    },
+	{
+		"type": "charm:module_enabled",
+		"module": "charm:variant_barrels"
+	}
+    ]
+}

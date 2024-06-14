@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "heartofender:blocks/lilac_fungus"
+  }
+}

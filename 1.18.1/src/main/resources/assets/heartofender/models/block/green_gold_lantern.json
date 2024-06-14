@@ -1,0 +1,7 @@
+{
+  "parent": "block/lantern",
+  "textures": {
+    "particle": "heartofender:blocks/green_gold_lantern",
+    "lantern": "heartofender:blocks/green_gold_lantern"
+  }
+}

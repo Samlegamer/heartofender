@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:fire",
+      "config": {
+        "count": 12
+      }
+    },
+    "feature": {
+      "type": "minecraft:random_patch",
+      "config": {
+        "can_replace": false,
+        "project": false,
+        "need_water": false,
+        "xspread": 7,
+        "yspread": 3,
+        "zspread": 7,
+        "tries": 64,
+        "state_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "heartofender:green_fire",
+            "Properties": {
+              "west": "false",
+              "up": "false",
+              "south": "false",
+              "north": "false",
+              "east": "false",
+              "age": "0"
+            }
+          }
+        },
+        "block_placer": {
+          "type": "minecraft:simple_block_placer"
+        },
+        "whitelist": [
+          {
+            "Name": "heartofender:dark_end_stone"
+          }
+        ],
+        "blacklist": []
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "heartofender:dark_end_stone_brick"
+    }
+  },
+  "result": {
+    "item": "dark_end_stone_brick_stairs",
+    "count": 4
+  }
+}

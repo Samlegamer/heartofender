@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:glowstone",
+      "config": {
+        "count": 10
+      }
+    },
+    "feature": {
+      "type": "heartofender:purple_glowstone_blob",
+      "config": {}
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PSP",
+        "P P",
+        "PSP"
+    ],
+    "key": {
+        "S": {
+            "item": "heartofender:lilac_slab"
+        },
+        "P": {
+            "item": "heartofender:lilac_planks"
+        }
+    },
+    "result": {
+        "item": "heartofender:lilac_barrel"
+    },
+    "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "charm"
+    },
+    {
+		"type": "charm:module_enabled",
+		"module": "charm:variant_barrels"
+    }
+    ]
+}

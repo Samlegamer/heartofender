@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "heartofender:blocks/dead_soul_sandstone_top",
+        "side": "heartofender:blocks/cut_dead_soul_sandstone"
+    }
+}

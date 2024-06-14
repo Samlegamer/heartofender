@@ -1,0 +1,23 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "XXX",
+    "YXY",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "heartofender:dead_sand",
+      "data": 0
+
+    },
+    "Y": {
+      "item": "minecraft:nether_star",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "heartofender:herobrine_head",
+    "data": 0
+  }
+}

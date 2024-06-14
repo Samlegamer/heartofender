@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "heartofender:blocks/dark_end_stone"
+  }
+}

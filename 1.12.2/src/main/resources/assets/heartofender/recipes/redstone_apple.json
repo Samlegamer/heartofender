@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "###",
+    "#E#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:redstone",
+      "data": 0
+    },
+    "E": {
+      "item": "minecraft:apple",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "heartofender:redstone_apple",
+    "data": 0
+  }
+}

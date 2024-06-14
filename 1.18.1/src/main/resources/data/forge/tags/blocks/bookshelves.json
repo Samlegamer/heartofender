@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:bookshelf",
+    "heartofender:lilac_bookshelf",
+    "heartofender:leafy_bookshelf"
+  ]
+}

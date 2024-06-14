@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "#S#",
+    "#S#"
+  ],
+  "key": {
+    "#": {
+      "item": "heartofender:dark_end_stone_brick"
+    }
+  },
+  "key": {
+    "S": {
+      "item": "heartofender:black_rod"
+    }
+  },
+  "result": {
+    "item": "heartofender:dark_end_stone_brick_fence",
+    "count": 3
+  }
+}

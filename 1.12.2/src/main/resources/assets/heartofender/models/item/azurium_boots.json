@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "heartofender:items/azurium_boots"
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "###",
+    "#E#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:fermented_spider_eye",
+      "data": 0
+    },
+    "E": {
+      "item": "minecraft:ender_eye",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "heartofender:dead_eye",
+    "data": 0
+  }
+}

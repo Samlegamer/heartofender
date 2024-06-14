@@ -1,0 +1,64 @@
+{
+    "display": {
+        "icon": {
+            "item": "heartofender:azurium_chestplate"
+        },
+        "title": {
+            "translate": "titleadvancements.azuriumarmor.desc"
+        },
+        "description": {
+            "translate": "description.azuriumarmor"
+        }
+    },
+    "parent": "heartofender:core/azurium_pickaxe",
+    "criteria": {
+        "azurium_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "heartofender:azurium_helmet"
+                    }
+                ]
+            }
+        },
+        "azurium_chestplate": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "heartofender:azurium_chestplate"
+                    }
+                ]
+            }
+        },
+        "azurium_leggings": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "heartofender:azurium_leggings"
+                    }
+                ]
+            }
+        },
+        "azurium_boots": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "heartofender:azurium_boots"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "azurium_helmet",
+            "azurium_chestplate",
+            "azurium_leggings",
+            "azurium_boots"
+        ]
+    ]
+}

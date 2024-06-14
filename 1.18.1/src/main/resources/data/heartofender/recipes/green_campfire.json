@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "S#S",
+    "LLL"
+  ],
+  "key": {
+    "L": {
+      "tag": "minecraft:logs"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "#": [
+      {
+        "item": "heartofender:dead_sand"
+      },
+      {
+        "item": "heartofender:dead_soul_soil"
+      }
+    ]
+  },
+  "result": {
+    "item": "heartofender:green_campfire"
+  }
+}

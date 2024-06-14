@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "heartofender:milathium_ingot"
+    }
+  },
+  "result": {
+    "item": "heartofender:milathium_boots"
+  }
+}
