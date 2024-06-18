@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "heartofender:blocks/stripped_leafy_stem",
+    "side": "heartofender:blocks/stripped_leafy_stem"
+  }
+}

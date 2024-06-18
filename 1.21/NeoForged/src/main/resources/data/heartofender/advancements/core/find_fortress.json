@@ -1,0 +1,33 @@
+{
+  "parent": "heartofender:core/root",
+  "display": {
+    "icon": {
+      "item": "heartofender:azurium_axe"
+    },
+    "title": {
+      "translate": "advancements.hoe.find_fortress.title"
+    },
+    "description": {
+      "translate": "advancements.hoe.find_fortress.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "structure": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "heartofender:heart_of_ender_fortress"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "structure"
+    ]
+  ]
+}

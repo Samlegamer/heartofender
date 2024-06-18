@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "hanging=true": { "model": "heartofender:block/green_gold_lantern_hanging"},
+        "hanging=false": { "model": "heartofender:block/green_gold_lantern"}
+  }
+}

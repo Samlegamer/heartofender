@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "heartofender:blocks/leafy_crafting_table_front",
+    "up": "heartofender:blocks/leafy_crafting_table_top",
+    "down": "heartofender:blocks/leafy_planks",
+    "north": "heartofender:blocks/leafy_crafting_table_front",
+    "south": "heartofender:blocks/leafy_crafting_table_side",
+    "west": "heartofender:blocks/leafy_crafting_table_front",
+    "east": "heartofender:blocks/leafy_crafting_table_side"
+  }
+}

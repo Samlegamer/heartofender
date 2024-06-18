@@ -1,0 +1,12 @@
+{
+  "parent": "heartofender:block/quark/chest",
+  "textures": {
+    "particle": "heartofender:blocks/chest/leafy_face",
+    "north": "heartofender:blocks/chest/leafy_back",
+    "south": "heartofender:blocks/chest/leafy_face",
+    "east": "heartofender:blocks/chest/leafy_cote_l",
+    "west": "heartofender:blocks/chest/leafy_cote_r",
+    "up": "heartofender:blocks/chest/leafy_top",
+    "down": "heartofender:blocks/chest/leafy_bottom"
+  }
+}

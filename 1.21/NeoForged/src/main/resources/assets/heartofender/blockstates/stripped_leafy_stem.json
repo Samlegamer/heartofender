@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "heartofender:block/stripped_leafy_stem",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "heartofender:block/stripped_leafy_stem"
+    },
+    "axis=z": {
+      "model": "heartofender:block/stripped_leafy_stem",
+      "x": 90
+    }
+  }
+}
