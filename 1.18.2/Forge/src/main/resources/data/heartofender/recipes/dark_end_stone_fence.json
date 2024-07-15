@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W#W",
+    "W#W"
+  ],
+  "key": {
+    "W": {
+      "item": "heartofender:dark_end_stone"
+    },
+    "#": {
+      "item": "heartofender:black_rod"
+    }
+  },
+  "result": {
+    "item": "heartofender:dark_end_stone_fence",
+    "count": 6
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  I",
+    " I ",
+    "S  "
+  ],
+  "key": {
+    "S": {
+      "item": "heartofender:black_rod"
+    },
+    "I": {
+      "item": "heartofender:milathium_ingot"
+    }	
+  },
+  "result": {
+    "item": "heartofender:milathium_fillet_knife"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
+    }
+  ]
+}

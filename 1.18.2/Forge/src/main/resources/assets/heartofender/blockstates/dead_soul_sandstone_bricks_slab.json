@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "heartofender:block/dead_soul_sandstone_bricks_slab" },
+        "type=top": { "model": "heartofender:block/dead_soul_sandstone_bricks_slab_top" },
+        "type=double": { "model": "heartofender:block/dead_soul_sandstone_bricks" }
+    }
+}

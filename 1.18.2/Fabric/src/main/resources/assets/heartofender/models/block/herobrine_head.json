@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "heartofender:blocks/herobrine_head_front",
+    "north": "heartofender:blocks/herobrine_head_front",
+    "south": "heartofender:blocks/herobrine_head_behind",
+    "east": "heartofender:blocks/herobrine_head_left",
+    "west": "heartofender:blocks/herobrine_head_right",
+    "up": "heartofender:blocks/herobrine_head_top",
+    "down": "heartofender:blocks/herobrine_head_down"
+  }
+}

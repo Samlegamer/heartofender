@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "#W#",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:rods/wooden"
+    },
+    "W": {
+      "item": "heartofender:lilac_planks"
+    }
+  },
+  "result": {
+    "item": "heartofender:lilac_ladder",
+    "count": 4
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "quark"
+    },
+    {
+      "type": "quark:flag",
+      "flag": "variant_ladders"
+    }
+  ]
+}

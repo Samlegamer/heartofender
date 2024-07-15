@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:huge_fungus",
+  "config": {
+    "hat_state": {
+      "Name": "heartofender:leafy_wart_block"
+    },
+    "decor_state": {
+      "Name": "heartofender:lilac_shroomlight"
+    },
+    "stem_state": {
+      "Name": "heartofender:leafy_stem",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    "valid_base_block": {
+      "Name": "heartofender:leafy_nylium"
+    },
+    "planted": false
+  }
+}

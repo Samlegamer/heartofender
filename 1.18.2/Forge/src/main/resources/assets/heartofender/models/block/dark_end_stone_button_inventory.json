@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "heartofender:blocks/dark_end_stone"
+  }
+}

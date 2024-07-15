@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"heartofender:dark_end_stone_fence",
+		"heartofender:dark_end_stone_brick_fence",	
+		"heartofender:lilac_fence",
+	    "heartofender:leafy_fence"
+	]
+}

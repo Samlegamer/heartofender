@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "heartofender:blocks/lilac_planks",
+    "side": "heartofender:blocks/lilac_bookshelf"
+  }
+}

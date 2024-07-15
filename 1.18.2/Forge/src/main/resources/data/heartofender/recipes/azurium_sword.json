@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "n",
+        "n",
+        "/"
+    ],
+    "key": {
+        "n": {
+            "item": "heartofender:azurium_ingot"
+        },
+        "/": {
+            "item": "heartofender:black_rod"
+        }
+    },
+    "result": {
+        "item": "heartofender:azurium_sword",
+        "count": 1
+    }
+}

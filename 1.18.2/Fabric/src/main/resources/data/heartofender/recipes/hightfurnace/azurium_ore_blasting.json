@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:blasting",
+    "ingredient": {
+        "item": "heartofender:azurium_ore"
+    },
+    "result": "heartofender:azurium_ingot",
+    "experience": 0.5,
+    "cookingtime": 200
+}

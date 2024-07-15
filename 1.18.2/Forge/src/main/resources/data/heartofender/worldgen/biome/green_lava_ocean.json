@@ -1,0 +1,74 @@
+{
+  "temperature": 2.5,
+  "downfall": 0.5,
+  "precipitation": "none",
+  "category": "nether",
+  "effects": {
+    "sky_color": 10806550,
+    "fog_color": 10806550,
+    "water_color": 4159204,
+    "water_fog_color": 329011,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "heartofender:heart_ghast",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "heartofender:ender_kid",
+        "weight": 40,
+        "minCount": 4,
+        "maxCount": 8
+      },
+      {
+        "type": "heartofender:blue_magma_cube",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 6
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "heartofender:purple_glowstone_extra",
+      "heartofender:purple_glowstone",
+      "heartofender:ore_blue_magma",
+      "heartofender:ore_dead_sand",
+      "heartofender:ore_milathium_ore"
+    ],
+    [],
+    [],
+    [],
+    []
+  ]
+}

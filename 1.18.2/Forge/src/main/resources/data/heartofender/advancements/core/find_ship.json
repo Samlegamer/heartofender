@@ -1,0 +1,33 @@
+{
+  "parent": "heartofender:core/root",
+  "display": {
+    "icon": {
+      "item": "heartofender:heart_ender_wart_block"
+    },
+    "title": {
+      "translate": "advancements.hoe.find_ship.title"
+    },
+    "description": {
+      "translate": "advancements.hoe.find_ship.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "structure": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "heartofender:heart_ender_ship"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "structure"
+    ]
+  ]
+}

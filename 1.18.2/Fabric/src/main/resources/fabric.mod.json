@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "heartofender",
+  "version": "${version}",
+
+  "name": "Heart of Ender",
+  "description": "This Mod Heart of Ender added new Blocks, Items, Food, Weapons, Mobs and Dimension !",
+  "authors": [
+    "Samlegamer"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/heart-of-ender",
+    "sources": "https://github.com/Samlegamer/heartofender/tree/main"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/heartofender/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "fr.samlegamer.heartofender.HeartofEnder"
+    ],
+    "client": [
+      "fr.samlegamer.heartofender.client.HoeClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+	/*
+	"heartofender:lilac_ladder",
+	"heartofender:leafy_ladder",
+	*/
+	"heartofender:lilac_weeping_vines",
+    "heartofender:lilac_weeping_vines_plant",
+    "heartofender:leafy_twisting_vines",
+    "heartofender:leafy_twisting_vines_plant"
+  ]
+}

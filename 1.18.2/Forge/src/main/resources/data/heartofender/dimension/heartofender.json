@@ -1,0 +1,148 @@
+{
+  "type": "heartofender:heartofender",
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": -1957967803,
+    "settings": "heartofender:heartofender",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "heartofender:heartofender_wastes",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "heartofender:dead_sand_valley",
+          "parameters": {
+            "temperature": 0,
+            "humidity": -0.5,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "heartofender:lilac_forest",
+          "parameters": {
+            "temperature": 0.4,
+            "humidity": 0,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "heartofender:leafy_forest",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0.5,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0.375
+          }
+        },
+        {
+          "biome": "heartofender:green_lava_ocean",
+          "parameters": {
+            "temperature": -0.5,
+            "humidity": 0,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0.175
+          }
+        }
+      ]
+    }
+  }
+}
+
+
+{
+  "type": "minecraft:the_nether",
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": 985165655,
+    "settings": "minecraft:nether",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "minecraft:nether_wastes",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "minecraft:soul_sand_valley",
+          "parameters": {
+            "temperature": 0,
+            "humidity": -0.5,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "minecraft:crimson_forest",
+          "parameters": {
+            "temperature": 0.4,
+            "humidity": 0,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "minecraft:warped_forest",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0.5,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0.375
+          }
+        },
+        {
+          "biome": "minecraft:basalt_deltas",
+          "parameters": {
+            "temperature": -0.5,
+            "humidity": 0,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0.175
+          }
+        }
+      ]
+    }
+  }
+}

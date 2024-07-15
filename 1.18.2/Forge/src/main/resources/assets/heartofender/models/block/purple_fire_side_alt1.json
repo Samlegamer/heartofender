@@ -1,0 +1,6 @@
+{
+  "parent": "heartofender:block/template_green_fire_side_alt",
+  "textures": {
+    "fire": "heartofender:blocks/purple_fire_1"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "heartofender:block/heart_of_ender_portal_ns"
+    },
+    "axis=z": {
+      "model": "heartofender:block/heart_of_ender_portal_ew"
+    }
+  }
+}

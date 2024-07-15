@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        " / ",
+        " / "
+    ],
+    "key": {
+        "#": {
+            "item": "heartofender:milathium_ingot"
+        },
+        "/": {
+            "item": "heartofender:black_rod"
+        }
+    },
+    "result": {
+        "item": "heartofender:milathium_pickaxe",
+        "count": 1
+    }
+}
