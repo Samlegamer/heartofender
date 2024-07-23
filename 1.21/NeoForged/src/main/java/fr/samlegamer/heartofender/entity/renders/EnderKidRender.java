@@ -7,13 +7,13 @@ import fr.samlegamer.heartofender.entity.models.EnderKidModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class EnderKidRender extends HumanoidMobRenderer<EnderKid, EnderKidModel>
 {
-		private static final ResourceLocation ENDER_KID_LOCATION = new ResourceLocation(HeartofEnder.MODID, "textures/entity/enderkid/ender_kid.png");
+		private static final ResourceLocation ENDER_KID_LOCATION = ResourceLocation.withDefaultNamespace(HeartofEnder.MODID + ":textures/entity/enderkid/ender_kid.png");
 	    
 	    public EnderKidRender(Context p_173931_)
 	    {

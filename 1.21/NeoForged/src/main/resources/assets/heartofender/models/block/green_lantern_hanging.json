@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_hanging_lantern",
   "textures": {
-    "lantern": "heartofender:blocks/green_lantern"
+    "lantern": "heartofender:block/green_lantern"
   }
 }

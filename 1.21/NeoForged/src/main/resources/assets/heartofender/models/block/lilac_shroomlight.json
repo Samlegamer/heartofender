@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "heartofender:blocks/lilac_shroomlight"
+    "all": "heartofender:block/lilac_shroomlight"
   }
 }

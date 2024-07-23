@@ -1,18 +1,17 @@
 package fr.samlegamer.heartofender.block;
 
 import javax.annotation.Nullable;
-
 import fr.samlegamer.heartofender.entity.Herobrine;
 import fr.samlegamer.heartofender.entity.HoeEntityRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -24,7 +23,7 @@ import net.minecraft.world.level.block.state.pattern.BlockPatternBuilder;
 import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 
-public class HerobrineHeadBlock extends HorizontalDirectionalBlock
+public class HerobrineHeadBlock extends CarvedPumpkinBlock
 {	
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	
@@ -61,7 +60,7 @@ public class HerobrineHeadBlock extends HorizontalDirectionalBlock
             }
 
             BlockPos blockpos = blockpattern$patternhelper.getBlock(1, 2, 0).getPos();
-            Herobrine irongolementity = HoeEntityRegistry.HEROBRINE.create(p_196358_1_);//new Herobrine(p_196358_1_);
+            Herobrine irongolementity = HoeEntityRegistry.HEROBRINE.get().create(p_196358_1_);//new Herobrine(p_196358_1_);
             irongolementity.moveTo((double)blockpos.getX() + 0.5D, (double)blockpos.getY() + 0.05D, (double)blockpos.getZ() + 0.5D, 0.0F, 0.0F);
             p_196358_1_.addFreshEntity(irongolementity);
 
@@ -78,17 +77,17 @@ public class HerobrineHeadBlock extends HorizontalDirectionalBlock
          }
     }
     
-	private BlockPattern getOrCreateHerobrineBase() {
+	/*private BlockPattern getOrCreateHerobrineBase() {
         if (this.HerobrineBase == null) {
-           this.HerobrineBase = BlockPatternBuilder.start().aisle("~ ~", "###", "~=~").where('=', BlockInWorld.hasState(BlockStatePredicate.forBlock(HoeBlocksRegistry.AZURIUM_BLOCK.get()))).where('#', BlockInWorld.hasState(BlockStatePredicate.forBlock(Blocks.DIAMOND_BLOCK))).where('~', BlockInWorld.hasState(BlockMaterialPredicate.forMaterial(Material.AIR))).build();
+           this.HerobrineBase = BlockPatternBuilder.start().aisle("~ ~", "###", "~=~").where('=', BlockInWorld.hasState(BlockStatePredicate.forBlock(HoeBlocksRegistry.AZURIUM_BLOCK.get()))).where('#', BlockInWorld.hasState(BlockStatePredicate.forBlock(Blocks.DIAMOND_BLOCK))).where('~', BlockInWorld.hasState(BlockStatePredicate.forBlock(Blocks.AIR))).build();
         }
 
         return this.HerobrineBase;
-     }
+     }*/
 
      private BlockPattern getOrCreateHerobrineFull() {
         if (this.HerobrineFull == null) {
-           this.HerobrineFull = BlockPatternBuilder.start().aisle("~^~", "###", "~=~").where('=', BlockInWorld.hasState(BlockStatePredicate.forBlock(HoeBlocksRegistry.AZURIUM_BLOCK.get()))).where('^', BlockInWorld.hasState(BlockStatePredicate.forBlock(HoeBlocksRegistry.HEROBRINE_HEAD.get()))).where('#', BlockInWorld.hasState(BlockStatePredicate.forBlock(Blocks.DIAMOND_BLOCK))).where('~', BlockInWorld.hasState(BlockMaterialPredicate.forMaterial(Material.AIR))).build();
+           this.HerobrineFull = BlockPatternBuilder.start().aisle("~^~", "###", "~=~").where('=', BlockInWorld.hasState(BlockStatePredicate.forBlock(HoeBlocksRegistry.AZURIUM_BLOCK.get()))).where('^', BlockInWorld.hasState(BlockStatePredicate.forBlock(HoeBlocksRegistry.HEROBRINE_HEAD.get()))).where('#', BlockInWorld.hasState(BlockStatePredicate.forBlock(Blocks.DIAMOND_BLOCK))).where('~', BlockInWorld.hasState(BlockStatePredicate.forBlock(Blocks.AIR))).build();
         }
 
         return this.HerobrineFull;

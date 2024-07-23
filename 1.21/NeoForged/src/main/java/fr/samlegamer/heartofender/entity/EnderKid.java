@@ -1,17 +1,23 @@
 package fr.samlegamer.heartofender.entity;
 
 import java.util.EnumSet;
+import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
 import java.util.function.Predicate;
 import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.damagesource.DamageSource;
@@ -44,38 +50,37 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.network.PlayMessages;
 
 public class EnderKid extends EnderMan implements NeutralMob
 {
-	   private static final UUID SPEED_MODIFIER_ATTACKING_UUID = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23A1718");
-	   private static final AttributeModifier SPEED_MODIFIER_ATTACKING = new AttributeModifier(SPEED_MODIFIER_ATTACKING_UUID, "Attacking speed boost", 0.05D, AttributeModifier.Operation.ADDITION);
-	   private static final UniformInt FIRST_ANGER_SOUND_DELAY = TimeUtil.rangeOfSeconds(0, 1);
-	   private int playFirstAngerSoundIn;
-	   private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
-	   private int remainingPersistentAngerTime;
-	   @Nullable
-	   private UUID persistentAngerTarget;
-	   private static final int ALERT_RANGE_Y = 10;
-	   private static final UniformInt ALERT_INTERVAL = TimeUtil.rangeOfSeconds(4, 6);
-	   private int ticksUntilNextAlert;
+    private static final ResourceLocation SPEED_MODIFIER_ATTACKING_ID = ResourceLocation.withDefaultNamespace("attacking");
+    private static final AttributeModifier SPEED_MODIFIER_ATTACKING = new AttributeModifier(
+        SPEED_MODIFIER_ATTACKING_ID, 0.15F, AttributeModifier.Operation.ADD_VALUE
+    );
+    private static final int DELAY_BETWEEN_CREEPY_STARE_SOUND = 400;
+    private static final int MIN_DEAGGRESSION_TIME = 600;
+    private static final EntityDataAccessor<Optional<BlockState>> DATA_CARRY_STATE = SynchedEntityData.defineId(
+        EnderMan.class, EntityDataSerializers.OPTIONAL_BLOCK_STATE
+    );
+    private static final EntityDataAccessor<Boolean> DATA_CREEPY = SynchedEntityData.defineId(EnderMan.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> DATA_STARED_AT = SynchedEntityData.defineId(EnderMan.class, EntityDataSerializers.BOOLEAN);
+    private int lastStareSound = Integer.MIN_VALUE;
+    private int targetChangeTime;
+    private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
+    private int remainingPersistentAngerTime;
+    @Nullable
+    private UUID persistentAngerTarget;
 
-	   @SuppressWarnings({ "rawtypes" })
-	   public EnderKid(EntityType typeentity, Level world) {
+
+	   public EnderKid(EntityType<EnderKid> typeentity, Level world) {
 	      super(typeentity, world);
-	      this.maxUpStep = 1.0F;
 	      this.xpReward = 6;
-	      this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
+	      this.setPathfindingMalus(PathType.WATER, -1.0F);
 	   }
-	   
-	    public EnderKid(PlayMessages.SpawnEntity spawnEntity, Level worldIn)
-	    {
-	        this(HoeEntityRegistry.ENDER_KID, worldIn);
-	    }
 	    	    
 	    @Override
 	    public boolean causeFallDamage(float p_147187_, float p_147188_, DamageSource p_147189_)
@@ -121,30 +126,46 @@ public class EnderKid extends EnderMan implements NeutralMob
 		      return this.teleport(d1, d2, d3);
 		   }
 	   
-	   private boolean teleport(double p_32544_, double p_32545_, double p_32546_) {
-		      BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(p_32544_, p_32545_, p_32546_);
+	    protected boolean teleport() {
+	        if (!this.level().isClientSide() && this.isAlive()) {
+	            double d0 = this.getX() + (this.random.nextDouble() - 0.5) * 64.0;
+	            double d1 = this.getY() + (double)(this.random.nextInt(64) - 32);
+	            double d2 = this.getZ() + (this.random.nextDouble() - 0.5) * 64.0;
+	            return this.teleport(d0, d1, d2);
+	        } else {
+	            return false;
+	        }
+	    }
+	    
+	    private boolean teleport(double pX, double pY, double pZ) {
+	        BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(pX, pY, pZ);
 
-		      while(blockpos$mutableblockpos.getY() > this.level.getMinBuildHeight() && !this.level.getBlockState(blockpos$mutableblockpos).getMaterial().blocksMotion()) {
-		         blockpos$mutableblockpos.move(Direction.DOWN);
-		      }
+	        while (blockpos$mutableblockpos.getY() > this.level().getMinBuildHeight() && !this.level().getBlockState(blockpos$mutableblockpos).blocksMotion()) {
+	            blockpos$mutableblockpos.move(Direction.DOWN);
+	        }
 
-		      BlockState blockstate = this.level.getBlockState(blockpos$mutableblockpos);
-		      boolean flag = blockstate.getMaterial().blocksMotion();
-		      boolean flag1 = blockstate.getFluidState().is(FluidTags.WATER);
-		      if (flag && !flag1) {
-		         net.minecraftforge.event.entity.EntityTeleportEvent.EnderEntity event = net.minecraftforge.event.ForgeEventFactory.onEnderTeleport(this, p_32544_, p_32545_, p_32546_);
-		         if (event.isCanceled()) return false;
-		         boolean flag2 = this.randomTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ(), true);
-		         if (flag2 && !this.isSilent()) {
-		            this.level.playSound((Player)null, this.xo, this.yo, this.zo, SoundEvents.ENDERMAN_TELEPORT, this.getSoundSource(), 1.0F, 1.0F);
-		            this.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
-		         }
+	        BlockState blockstate = this.level().getBlockState(blockpos$mutableblockpos);
+	        boolean flag = blockstate.blocksMotion();
+	        boolean flag1 = blockstate.getFluidState().is(FluidTags.WATER);
+	        if (flag && !flag1) {
+	            net.neoforged.neoforge.event.entity.EntityTeleportEvent.EnderEntity event = net.neoforged.neoforge.event.EventHooks.onEnderTeleport(this, pX, pY, pZ);
+	            if (event.isCanceled()) return false;
+	            Vec3 vec3 = this.position();
+	            boolean flag2 = this.randomTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ(), true);
+	            if (flag2) {
+	                this.level().gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(this));
+	                if (!this.isSilent()) {
+	                    this.level().playSound(null, this.xo, this.yo, this.zo, SoundEvents.ENDERMAN_TELEPORT, this.getSoundSource(), 1.0F, 1.0F);
+	                    this.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
+	                }
+	            }
 
-		         return flag2;
-		      } else {
-		         return false;
-		      }
-		   }
+	            return flag2;
+	        } else {
+	            return false;
+	        }
+	    }
+
 	   
 	   static class EndermanLookForPlayerGoal extends NearestAttackableTargetGoal<Player> {
 		      private final EnderKid enderman;
@@ -164,7 +185,7 @@ public class EnderKid extends EnderMan implements NeutralMob
 		      }
 
 		      public boolean canUse() {
-		         this.pendingTarget = this.enderman.level.getNearestPlayer(this.startAggroTargetConditions, this.enderman);
+		         this.pendingTarget = this.enderman.level().getNearestPlayer(this.startAggroTargetConditions, this.enderman);
 		         return this.pendingTarget != null;
 		      }
 
@@ -232,7 +253,7 @@ public class EnderKid extends EnderMan implements NeutralMob
 		      public boolean canUse() {
 		         if (this.enderman.getCarriedBlock() != null) {
 		            return false;
-		         } else if (!net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.enderman.level, this.enderman)) {
+		         } else if (!net.neoforged.neoforge.event.EventHooks.canEntityGrief(this.enderman.level(), this.enderman)) {
 		            return false;
 		         } else {
 		            return this.enderman.getRandom().nextInt(reducedTickDelay(20)) == 0;
@@ -240,8 +261,8 @@ public class EnderKid extends EnderMan implements NeutralMob
 		      }
 
 		      public void tick() {
-		         Random random = this.enderman.getRandom();
-		         Level level = this.enderman.level;
+		         RandomSource random = this.enderman.getRandom();
+		         Level level = this.enderman.level();
 		         int i = Mth.floor(this.enderman.getX() - 2.0D + random.nextDouble() * 4.0D);
 		         int j = Mth.floor(this.enderman.getY() + random.nextDouble() * 3.0D);
 		         int k = Mth.floor(this.enderman.getZ() - 2.0D + random.nextDouble() * 4.0D);
@@ -270,37 +291,31 @@ public class EnderKid extends EnderMan implements NeutralMob
 		      public boolean canUse() {
 		         if (this.enderman.getCarriedBlock() == null) {
 		            return false;
-		         } else if (!net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.enderman.level, this.enderman)) {
+		         } else if (!net.neoforged.neoforge.event.EventHooks.canEntityGrief(this.enderman.level(), this.enderman)) {
 		            return false;
 		         } else {
 		            return this.enderman.getRandom().nextInt(reducedTickDelay(2000)) == 0;
 		         }
 		      }
 
-		      public void tick() {
-		         Random random = this.enderman.getRandom();
-		         Level level = this.enderman.level;
-		         int i = Mth.floor(this.enderman.getX() - 1.0D + random.nextDouble() * 2.0D);
-		         int j = Mth.floor(this.enderman.getY() + random.nextDouble() * 2.0D);
-		         int k = Mth.floor(this.enderman.getZ() - 1.0D + random.nextDouble() * 2.0D);
-		         BlockPos blockpos = new BlockPos(i, j, k);
-		         BlockState blockstate = level.getBlockState(blockpos);
-		         BlockPos blockpos1 = blockpos.below();
-		         BlockState blockstate1 = level.getBlockState(blockpos1);
-		         BlockState blockstate2 = this.enderman.getCarriedBlock();
-		         if (blockstate2 != null) {
-		            blockstate2 = Block.updateFromNeighbourShapes(blockstate2, this.enderman.level, blockpos);
-		            if (this.canPlaceBlock(level, blockpos, blockstate2, blockstate, blockstate1, blockpos1) && !net.minecraftforge.event.ForgeEventFactory.onBlockPlace(enderman, net.minecraftforge.common.util.BlockSnapshot.create(level.dimension(), level, blockpos1), net.minecraft.core.Direction.UP)) {
-		               level.setBlock(blockpos, blockstate2, 3);
-		               level.gameEvent(this.enderman, GameEvent.BLOCK_PLACE, blockpos);
-		               this.enderman.setCarriedBlock((BlockState)null);
+		      @Override
+		        public void tick() {
+		            RandomSource randomsource = this.enderman.getRandom();
+		            Level level = this.enderman.level();
+		            int i = Mth.floor(this.enderman.getX() - 2.0 + randomsource.nextDouble() * 4.0);
+		            int j = Mth.floor(this.enderman.getY() + randomsource.nextDouble() * 3.0);
+		            int k = Mth.floor(this.enderman.getZ() - 2.0 + randomsource.nextDouble() * 4.0);
+		            BlockPos blockpos = new BlockPos(i, j, k);
+		            BlockState blockstate = level.getBlockState(blockpos);
+		            Vec3 vec3 = new Vec3((double)this.enderman.getBlockX() + 0.5, (double)j + 0.5, (double)this.enderman.getBlockZ() + 0.5);
+		            Vec3 vec31 = new Vec3((double)i + 0.5, (double)j + 0.5, (double)k + 0.5);
+		            BlockHitResult blockhitresult = level.clip(new ClipContext(vec3, vec31, ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, this.enderman));
+		            boolean flag = blockhitresult.getBlockPos().equals(blockpos);
+		            if (blockstate.is(BlockTags.ENDERMAN_HOLDABLE) && flag) {
+		                level.removeBlock(blockpos, false);
+		                level.gameEvent(GameEvent.BLOCK_DESTROY, blockpos, GameEvent.Context.of(this.enderman, blockstate));
+		                this.enderman.setCarriedBlock(blockstate.getBlock().defaultBlockState());
 		            }
-
-		         }
-		      }
-
-		      private boolean canPlaceBlock(Level p_32559_, BlockPos p_32560_, BlockState p_32561_, BlockState p_32562_, BlockState p_32563_, BlockPos p_32564_) {
-		         return p_32562_.isAir() && !p_32563_.isAir() && !p_32563_.is(Blocks.BEDROCK) && !p_32563_.is(net.minecraftforge.common.Tags.Blocks.ENDERMAN_PLACE_ON_BLACKLIST) && p_32563_.isCollisionShapeFullBlock(p_32559_, p_32564_) && p_32561_.canSurvive(p_32559_, p_32560_) && p_32559_.getEntities(this.enderman, AABB.unitCubeFromLowerCorner(Vec3.atLowerCornerOf(p_32560_))).isEmpty();
 		      }
 		   }
 
@@ -346,12 +361,6 @@ public class EnderKid extends EnderMan implements NeutralMob
 		         this.enderman.getLookControl().setLookAt(this.target.getX(), this.target.getEyeY(), this.target.getZ());
 		      }
 		   }
-	   
-	   @Override
-	   protected float getStandingEyeHeight(net.minecraft.world.entity.Pose p_32517_, EntityDimensions p_32518_)
-	   {
-		   return 1.85F;
-	   }
 	   
 	   protected SoundEvent getAmbientSound() {
 	      return this.isCreepy() ? SoundEvents.ENDERMAN_SCREAM : SoundEvents.ENDERMAN_AMBIENT;

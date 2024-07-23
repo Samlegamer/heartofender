@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "A": {
+      "item": "minecraft:apple"
+    },
+    "D": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "pattern": [
+    "#D#",
+    "DAD",
+    "#D#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "heartofender:iron_apple"
+  }
+}

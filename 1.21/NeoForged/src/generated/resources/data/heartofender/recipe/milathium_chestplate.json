@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "heartofender:milathium_ingot"
+    }
+  },
+  "pattern": [
+    "A A",
+    "AAA",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "heartofender:milathium_chestplate"
+  }
+}

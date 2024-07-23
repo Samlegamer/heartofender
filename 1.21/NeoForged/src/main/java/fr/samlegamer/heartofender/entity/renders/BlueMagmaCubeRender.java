@@ -7,20 +7,21 @@ import fr.samlegamer.heartofender.entity.BlueMagmaCube;
 import net.minecraft.client.model.LavaSlimeModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.MagmaCubeRenderer;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class BlueMagmaCubeRender extends MobRenderer<BlueMagmaCube, LavaSlimeModel<BlueMagmaCube>>
+public class BlueMagmaCubeRender extends MagmaCubeRenderer
 {
-	   private static final ResourceLocation MAGMACUBE_LOCATION = new ResourceLocation(HeartofEnder.MODID + ":textures/entity/heartmagmablock/heart_magma_block.png");
+	   private static final ResourceLocation MAGMACUBE_LOCATION = ResourceLocation.withDefaultNamespace(HeartofEnder.MODID + ":textures/entity/heartmagmablock/heart_magma_block.png");
 
 	   public BlueMagmaCubeRender(EntityRendererProvider.Context p_174298_) {
-	      super(p_174298_, new LavaSlimeModel<>(p_174298_.bakeLayer(ModelLayers.MAGMA_CUBE)), 0.25F);
+	      super(p_174298_);
 	   }
 
 	   protected int getBlockLightLevel(BlueMagmaCube p_115399_, BlockPos p_115400_) {

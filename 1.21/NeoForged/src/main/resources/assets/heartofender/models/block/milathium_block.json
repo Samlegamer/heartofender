@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "heartofender:blocks/milathium_block"
+    "all": "heartofender:block/milathium_block"
   }
 }

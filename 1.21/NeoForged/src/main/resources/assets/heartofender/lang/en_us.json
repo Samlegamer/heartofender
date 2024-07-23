@@ -212,6 +212,6 @@
 	"entity.heartofender.heart_strider": "Heart Strider",	
 
 	//creative tabs
-	"itemGroup.heartofender_blocks": "Heart of Ender Blocks",
-  	"itemGroup.heartofender_items": "Heart of Ender Items"	    
+	"itemGroup.heartofender.heartofender_blocks": "Heart of Ender Blocks",
+  	"itemGroup.heartofender.heartofender_items": "Heart of Ender Items"	    
 }

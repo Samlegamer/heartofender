@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "heartofender:blocks/leafy_roots"
+    "cross": "heartofender:block/leafy_roots"
   }
 }

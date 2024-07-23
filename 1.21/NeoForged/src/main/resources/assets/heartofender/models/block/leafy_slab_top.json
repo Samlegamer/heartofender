@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "bottom": "heartofender:blocks/leafy_planks",
-    "top": "heartofender:blocks/leafy_planks",
-    "side": "heartofender:blocks/leafy_planks"
+    "bottom": "heartofender:block/leafy_planks",
+    "top": "heartofender:block/leafy_planks",
+    "side": "heartofender:block/leafy_planks"
   }
 }

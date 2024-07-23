@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_flint": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:flint"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_milathium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "heartofender:milathium_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "heartofender:flint_and_milathium"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_milathium_ingot",
+      "has_flint"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "heartofender:flint_and_milathium"
+    ]
+  }
+}

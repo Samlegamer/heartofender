@@ -4,10 +4,6 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.legacy.structure_gel.api.config.StructureConfig;
-import com.legacy.structure_gel.api.structure.GelConfigStructure;
-import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
-import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
 import com.mojang.serialization.Codec;
 
 import fr.samlegamer.heartofender.core.HeartofEnder;
@@ -32,15 +28,13 @@ import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
-import net.minecraft.world.level.material.Material;
 
 /*
  * Thanks for help Dungeons Plus
  * https://gitlab.com/modding-legacy/dungeons-plus/-/blob/1.18.x/src/main/java/com/legacy/dungeons_plus/structures/SoulPrisonStructure.java
  */
-public class HeartEnderShipStructure extends GelConfigStructure<NoneFeatureConfiguration>
+public class HeartEnderShipStructure {}/*extends GelConfigStructure<NoneFeatureConfiguration>
 {
 	private static final ResourceLocation SHIP_STRUCT = HeartofEnder.location("heart_ender_ship");
 
@@ -121,4 +115,4 @@ public class HeartEnderShipStructure extends GelConfigStructure<NoneFeatureConfi
 			
 		}
 	}
-}
+}*/

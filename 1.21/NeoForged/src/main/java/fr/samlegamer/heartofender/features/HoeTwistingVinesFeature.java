@@ -1,13 +1,11 @@
 package fr.samlegamer.heartofender.features;
 
-import java.util.Random;
-
 import com.mojang.serialization.Codec;
-
 import fr.samlegamer.heartofender.block.HoeBlocksRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
@@ -29,7 +27,7 @@ public class HoeTwistingVinesFeature extends Feature<TwistingVinesConfig>
 		      if (isInvalidPlacementLocation(worldgenlevel, blockpos)) {
 		         return false;
 		      } else {
-		         Random random = p_160558_.random();
+		         RandomSource random = p_160558_.random();
 		         TwistingVinesConfig twistingvinesconfig = p_160558_.config();
 		         int i = twistingvinesconfig.spreadWidth();
 		         int j = twistingvinesconfig.spreadHeight();
@@ -70,7 +68,7 @@ public class HoeTwistingVinesFeature extends Feature<TwistingVinesConfig>
 		      return true;
 		   }
 
-		   public static void placeWeepingVinesColumn(LevelAccessor p_67300_, Random p_67301_, BlockPos.MutableBlockPos p_67302_, int p_67303_, int p_67304_, int p_67305_) {
+		   public static void placeWeepingVinesColumn(LevelAccessor p_67300_, RandomSource p_67301_, BlockPos.MutableBlockPos p_67302_, int p_67303_, int p_67304_, int p_67305_) {
 		      for(int i = 1; i <= p_67303_; ++i) {
 		         if (p_67300_.isEmptyBlock(p_67302_)) {
 		            if (i == p_67303_ || !p_67300_.isEmptyBlock(p_67302_.above())) {

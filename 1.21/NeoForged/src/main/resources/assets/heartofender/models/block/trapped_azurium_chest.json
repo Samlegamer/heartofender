@@ -2,7 +2,7 @@
     "parent": "block/block",
     "textures": {
         "texture": "heartofender:models/trapped_azurium_chest",
-        "particle": "heartofender:blocks/azurium_break"
+        "particle": "heartofender:block/azurium_break"
     },
     "elements": [
         {   "from": [ 1, 0, 1 ],

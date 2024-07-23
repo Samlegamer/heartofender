@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_post",
   "textures": {
-    "texture": "heartofender:blocks/lilac_planks"
+    "texture": "heartofender:block/lilac_planks"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "A": {
+      "item": "heartofender:dark_end_stone_brick"
+    }
+  },
+  "pattern": [
+    "A"
+  ],
+  "result": {
+    "count": 1,
+    "id": "heartofender:dark_end_stone_brick_button"
+  }
+}

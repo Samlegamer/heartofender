@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_azurium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "heartofender:azurium_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_black_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "heartofender:black_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "heartofender:azurium_pickaxe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_azurium_ingot",
+      "has_black_rod"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "heartofender:azurium_pickaxe"
+    ]
+  }
+}

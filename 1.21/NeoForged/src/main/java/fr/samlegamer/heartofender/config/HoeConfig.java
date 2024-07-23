@@ -1,6 +1,6 @@
 package fr.samlegamer.heartofender.config;
 
-import net.minecraftforge.fml.config.ModConfig;
+import net.neoforged.fml.config.ModConfig;
 
 public class HoeConfig
 {

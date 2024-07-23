@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_orientable_trapdoor_bottom",
   "textures": {
-    "texture": "heartofender:blocks/leafy_trapdoor"
+    "texture": "heartofender:block/leafy_trapdoor"
   }
 }

@@ -1,12 +1,10 @@
 package fr.samlegamer.heartofender.features;
 
-import java.util.Random;
-
 import com.mojang.serialization.Codec;
-
 import fr.samlegamer.heartofender.block.HoeBlocksRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -23,7 +21,7 @@ public class PurpleGlowstoneBlobFeature extends Feature<NoneFeatureConfiguration
 		   public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> p_159861_) {
 		      WorldGenLevel worldgenlevel = p_159861_.level();
 		      BlockPos blockpos = p_159861_.origin();
-		      Random random = p_159861_.random();
+		      RandomSource random = p_159861_.random();
 		      if (!worldgenlevel.isEmptyBlock(blockpos)) {
 		         return false;
 		      } else {

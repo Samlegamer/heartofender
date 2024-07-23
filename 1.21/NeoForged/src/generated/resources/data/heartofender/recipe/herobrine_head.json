@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:brown_terracotta"
+    },
+    "T": {
+      "item": "minecraft:terracotta"
+    },
+    "X": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "XTX",
+    "TTT"
+  ],
+  "result": {
+    "count": 1,
+    "id": "heartofender:herobrine_head"
+  }
+}

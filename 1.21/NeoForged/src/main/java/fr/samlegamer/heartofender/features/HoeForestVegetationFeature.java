@@ -1,11 +1,9 @@
 package fr.samlegamer.heartofender.features;
 
-import java.util.Random;
-
 import com.mojang.serialization.Codec;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -24,7 +22,7 @@ public class HoeForestVegetationFeature extends Feature<NetherForestVegetationCo
 		      BlockPos blockpos = p_160068_.origin();
 		      BlockState blockstate = worldgenlevel.getBlockState(blockpos.below());
 		      NetherForestVegetationConfig netherforestvegetationconfig = p_160068_.config();
-		      Random random = p_160068_.random();
+		      RandomSource random = p_160068_.random();
 		      if (!blockstate.is(BlockTags.NYLIUM)) {
 		         return false;
 		      } else {

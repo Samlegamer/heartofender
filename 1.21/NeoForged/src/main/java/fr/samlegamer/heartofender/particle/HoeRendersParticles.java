@@ -1,26 +1,19 @@
 package fr.samlegamer.heartofender.particle;
 
-import fr.samlegamer.heartofender.core.HeartofEnder;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.particle.LavaParticle;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
-@Mod.EventBusSubscriber(modid = HeartofEnder.MODID, bus = Bus.MOD)
+//@EventBusSubscriber(modid = HeartofEnder.MODID, bus = Bus.MOD)
 public class HoeRendersParticles
 {
-	@SuppressWarnings("resource")
+	//@SubscribeEvent(priority = EventPriority.HIGH)
 	@OnlyIn(Dist.CLIENT)
-	@SubscribeEvent(priority = EventPriority.HIGH)
-	public static void registerParticles(ParticleFactoryRegisterEvent event)
+	public static void registerParticles(RegisterParticleProvidersEvent event)
 	{
-		Minecraft.getInstance().particleEngine.register(HoeParticleRegistry.GREEN_FLAME.get(), FlameParticle.Provider::new);
-		Minecraft.getInstance().particleEngine.register(HoeParticleRegistry.GREEN_LAVA.get(), LavaParticle.Provider::new);
+		event.registerSpriteSet(HoeParticleRegistry.GREEN_FLAME.get(), FlameParticle.Provider::new);
+		event.registerSpriteSet(HoeParticleRegistry.GREEN_LAVA.get(), LavaParticle.Provider::new);
 	}
 }

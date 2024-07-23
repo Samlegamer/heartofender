@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "heartofender:blocks/green_lava"
+        "all": "heartofender:block/green_lava"
     }
 }

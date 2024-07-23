@@ -2,7 +2,7 @@
     "parent": "block/block",
     "textures": {
         "texture": "heartofender:models/milathium_chest/trapped_milathium_chest",
-        "particle": "heartofender:blocks/milathium_break"
+        "particle": "heartofender:block/milathium_break"
     },
     "elements": [
         {   "from": [ 1, 0, 1 ],

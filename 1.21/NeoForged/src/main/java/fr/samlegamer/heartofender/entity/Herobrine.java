@@ -13,6 +13,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
@@ -35,6 +36,7 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Vex;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.item.ItemStack;
@@ -42,7 +44,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.network.PlayMessages;
 
 public class Herobrine extends Monster
 {
@@ -59,24 +60,13 @@ public class Herobrine extends Monster
 	   private boolean hasLimitedLife = false;
 	   private int limitedLifeTicks;
 
-	   @SuppressWarnings({ "rawtypes" })
-	   public Herobrine(EntityType typeentity, Level world)
+	   public Herobrine(EntityType<Herobrine> typeentity, Level world)
 	   {
 	      super(typeentity, world);
-	      this.maxUpStep = 1.0F;
 	      this.moveControl = new Herobrine.VexMoveControl(this);
 	      this.xpReward = 2000;
 	   }
 	   
-	   public Herobrine(Level world)
-	   {
-		   super(HoeEntityRegistry.HEROBRINE, world);
-	   }
-	    public Herobrine(PlayMessages.SpawnEntity spawnEntity, Level worldIn)
-	    {
-	        this(HoeEntityRegistry.HEROBRINE, worldIn);
-	    }
-
 	    public void setInvulnerableTicks(int p_82215_1_) {
 		      this.entityData.set(DATA_ID_INV, p_82215_1_);
 		   }
@@ -126,7 +116,7 @@ public class Herobrine extends Monster
 	      this.setNoGravity(true);
 	      if (this.hasLimitedLife && --this.limitedLifeTicks <= 0) {
 	         this.limitedLifeTicks = 20;
-	         this.hurt(DamageSource.STARVE, 1.0F);
+	         this.hurt(this.damageSources().starve(), 1.0F);
 	      }
 	   }
 
@@ -150,11 +140,10 @@ public class Herobrine extends Monster
 	    		  .add(Attributes.FOLLOW_RANGE, 64.0D);
 	   }
 
-	   protected void defineSynchedData() {
-	      super.defineSynchedData();
-	      this.entityData.define(DATA_FLAGS_ID, (byte)0);
-	      this.entityData.define(DATA_ID_INV, 0);
-	   }
+	    protected void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+	        super.defineSynchedData(pBuilder);
+	        pBuilder.define(DATA_FLAGS_ID, (byte)0);
+	    }
 
 	   public void readAdditionalSaveData(CompoundTag p_34008_) {
 	      super.readAdditionalSaveData(p_34008_);
@@ -254,21 +243,23 @@ public class Herobrine extends Monster
 	      return 1.0F;
 	   }
 
-	   @Nullable
-	   public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_34002_, DifficultyInstance p_34003_, MobSpawnType p_34004_, @Nullable SpawnGroupData p_34005_, @Nullable CompoundTag p_34006_) {
-	      this.populateDefaultEquipmentSlots(p_34003_);
-	      this.populateDefaultEquipmentEnchantments(p_34003_);
-	      return super.finalizeSpawn(p_34002_, p_34003_, p_34004_, p_34005_, p_34006_);
-	   }
+	    @Nullable
+	    @Override
+	    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pSpawnType, @Nullable SpawnGroupData pSpawnGroupData) {
+	        RandomSource randomsource = pLevel.getRandom();
+	        this.populateDefaultEquipmentSlots(randomsource, pDifficulty);
+	        this.populateDefaultEquipmentEnchantments(pLevel, randomsource, pDifficulty);
+	        return super.finalizeSpawn(pLevel, pDifficulty, pSpawnType, pSpawnGroupData);
+	    }
 
 	   protected void populateDefaultEquipmentSlots(DifficultyInstance p_33993_) {
 	      this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
 	      this.setDropChance(EquipmentSlot.MAINHAND, 0.0F);
 	   }
 
-	   class VexChargeAttackGoal extends Goal {
-	      public VexChargeAttackGoal() {
-	         this.setFlags(EnumSet.of(Goal.Flag.MOVE));
+	    class VexChargeAttackGoal extends Goal {
+	        public VexChargeAttackGoal() {
+	            this.setFlags(EnumSet.of(Goal.Flag.MOVE));
 	      }
 
 	      public boolean canUse() {
@@ -388,7 +379,7 @@ public class Herobrine extends Monster
 
 	         for(int i = 0; i < 3; ++i) {
 	            BlockPos blockpos1 = blockpos.offset(Herobrine.this.random.nextInt(15) - 7, Herobrine.this.random.nextInt(11) - 5, Herobrine.this.random.nextInt(15) - 7);
-	            if (Herobrine.this.level.isEmptyBlock(blockpos1)) {
+	            if (Herobrine.this.level().isEmptyBlock(blockpos1)) {
 	            	Herobrine.this.moveControl.setWantedPosition((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 0.25D);
 	               if (Herobrine.this.getTarget() == null) {
 	            	   Herobrine.this.getLookControl().setLookAt((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 180.0F, 20.0F);

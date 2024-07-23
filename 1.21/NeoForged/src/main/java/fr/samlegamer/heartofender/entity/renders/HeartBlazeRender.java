@@ -8,13 +8,13 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.monster.Blaze;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class HeartBlazeRender extends MobRenderer<Blaze, BlazeModel<Blaze>>
 {
-	   private static final ResourceLocation HEART_BLAZE_LOCATION = new ResourceLocation(HeartofEnder.MODID, "textures/entity/heartblaze/heart_blaze.png");
+	   private static final ResourceLocation HEART_BLAZE_LOCATION = ResourceLocation.withDefaultNamespace(HeartofEnder.MODID + ":textures/entity/heartblaze/heart_blaze.png");
 
 	   public HeartBlazeRender(EntityRendererProvider.Context p_173933_)
 	   {

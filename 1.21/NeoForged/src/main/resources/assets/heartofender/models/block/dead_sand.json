@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "heartofender:blocks/dead_sand"
+    "all": "heartofender:block/dead_sand"
   }
 }

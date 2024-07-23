@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:coal"
+    },
+    "X": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "AXA",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "heartofender:black_rod"
+  }
+}

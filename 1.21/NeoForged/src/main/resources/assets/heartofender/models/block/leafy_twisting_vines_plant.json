@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "heartofender:blocks/leafy_twisting_vines_plant"
+    "cross": "heartofender:block/leafy_twisting_vines_plant"
   }
 }

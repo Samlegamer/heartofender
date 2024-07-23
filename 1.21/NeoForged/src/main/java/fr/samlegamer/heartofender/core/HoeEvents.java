@@ -1,22 +1,22 @@
 package fr.samlegamer.heartofender.core;
 
-import com.google.common.collect.ImmutableList;
-import com.legacy.structure_gel.api.dimension.portal.GelPortalLogic;
-import fr.samlegamer.heartofender.block.HOEPortal;
-import fr.samlegamer.heartofender.block.HoeBlocksRegistry;
-import fr.samlegamer.heartofender.item.FlintAndAzuriumItem;
-import fr.samlegamer.heartofender.item.FlintAndMilathiumItem;
-import fr.samlegamer.heartofender.item.GreenFireChargeItem;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import fr.samlegamer.heartofender.config.HoeConfig;
+import fr.samlegamer.heartofender.config.HoeConfigsRegistry;
+import fr.samlegamer.heartofender.entity.*;
+import fr.samlegamer.heartofender.entity.HoeEntityRegistry;
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.EventBusSubscriber.Bus;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.config.ModConfigEvent;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 
+//@EventBusSubscriber(modid = HeartofEnder.MODID, bus = Bus.MOD)
 public class HoeEvents
 {
-	@SubscribeEvent
+	
+	/*@SubscribeEvent
 	public static void mkPortal(RightClickBlock event)
 	{		
 		if(!event.getItemStack().isEmpty() && event.getItemStack().getItem() instanceof FlintAndAzuriumItem)
@@ -85,5 +85,5 @@ public class HoeEvents
 				}
 			}
 		}
-	}
+	}*/
 }

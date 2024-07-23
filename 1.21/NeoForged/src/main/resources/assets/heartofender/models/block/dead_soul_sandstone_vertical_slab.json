@@ -1,8 +1,8 @@
 {
-    "parent": "heartofender:blocks/vertical_slab",
+    "parent": "heartofender:block/vertical_slab",
     "textures": {
-        "bottom": "heartofender:blocks/dead_soul_sandstone",
-        "top": "heartofender:blocks/dead_soul_sandstone",
-        "side": "heartofender:blocks/dead_soul_sandstone"
+        "bottom": "heartofender:block/dead_soul_sandstone",
+        "top": "heartofender:block/dead_soul_sandstone",
+        "side": "heartofender:block/dead_soul_sandstone"
     }
 }

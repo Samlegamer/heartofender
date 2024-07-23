@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "/": {
+      "item": "heartofender:black_rod"
+    },
+    "A": {
+      "item": "heartofender:heart_bone"
+    }
+  },
+  "pattern": [
+    "A",
+    "A",
+    "/"
+  ],
+  "result": {
+    "count": 1,
+    "id": "heartofender:heart_bone_sword"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "minecraft:coal"
+    },
+    "X": {
+      "item": "minecraft:end_stone"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "AXA",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "heartofender:dark_end_stone"
+  }
+}

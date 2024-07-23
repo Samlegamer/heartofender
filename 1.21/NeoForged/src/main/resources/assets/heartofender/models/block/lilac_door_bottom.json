@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/door_bottom",
   "textures": {
-    "top": "heartofender:blocks/lilac_door_top",
-    "bottom": "heartofender:blocks/lilac_door_bottom"
+    "top": "heartofender:block/lilac_door_top",
+    "bottom": "heartofender:block/lilac_door_bottom"
   }
 }

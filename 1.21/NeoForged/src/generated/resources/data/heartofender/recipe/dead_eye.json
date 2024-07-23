@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    "X": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "AXA",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "heartofender:dead_eye"
+  }
+}

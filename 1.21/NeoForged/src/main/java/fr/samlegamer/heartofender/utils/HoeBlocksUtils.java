@@ -16,7 +16,7 @@ public class HoeBlocksUtils
 	public static final BlockBehaviour.Properties GLOWSTONE_BASE = BlockBehaviour.Properties.of().sound(SoundType.GLASS).strength(0.3F);
 	public static final BlockBehaviour.Properties FIRE_BASE = BlockBehaviour.Properties.of().instabreak().noCollission().sound(SoundType.WOOL);
 	public static final BlockBehaviour.Properties CAMPFIRES = BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.WOOD).noOcclusion();
-	public static final BlockBehaviour.Properties TORCH_BASE = BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.WOOD);
+	public static final BlockBehaviour.Properties TORCH_BASE = BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY);
 	public static final BlockBehaviour.Properties WALL_TORCH_BASE = BlockBehaviour.Properties.of().noCollission().sound(SoundType.WOOD).instabreak();
 	public static final BlockBehaviour.Properties LANTERNS = BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.5F).sound(SoundType.LANTERN).noOcclusion();
 

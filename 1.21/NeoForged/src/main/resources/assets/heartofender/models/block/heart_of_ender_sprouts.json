@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "heartofender:blocks/heart_of_ender_sprouts"
+    "cross": "heartofender:block/heart_of_ender_sprouts"
   }
 }

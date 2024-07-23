@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/door_top_rh",
   "textures": {
-    "top": "heartofender:blocks/leafy_door_top",
-    "bottom": "heartofender:blocks/leafy_door_bottom"
+    "top": "heartofender:block/leafy_door_top",
+    "bottom": "heartofender:block/leafy_door_bottom"
   }
 }

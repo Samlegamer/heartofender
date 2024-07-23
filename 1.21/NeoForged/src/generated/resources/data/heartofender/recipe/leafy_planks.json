@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "heartofender:leafy_stem"
+    }
+  },
+  "pattern": [
+    "A"
+  ],
+  "result": {
+    "count": 4,
+    "id": "heartofender:leafy_planks"
+  }
+}

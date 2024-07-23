@@ -12,8 +12,8 @@
   "textures": {
     "particle": "block/campfire_log",
     "log": "block/campfire_log",
-    "litlog": "heartofender:blocks/purple_campfire_log_lit",
-    "fire": "heartofender:blocks/purple_campfire_fire"
+    "litlog": "heartofender:block/purple_campfire_log_lit",
+    "fire": "heartofender:block/purple_campfire_fire"
   },
   "elements": [
     {

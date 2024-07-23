@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dead_eye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "heartofender:dead_eye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_heart_ender_portal_piece": {
+      "conditions": {
+        "items": [
+          {
+            "items": "heartofender:heart_ender_portal_piece"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "heartofender:heart_ender_portal_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_heart_ender_portal_piece",
+      "has_dead_eye"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "heartofender:heart_ender_portal_block"
+    ]
+  }
+}

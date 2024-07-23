@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "heartofender:blocks/deepslate_azurium_ore"
+    "all": "heartofender:block/deepslate_azurium_ore"
   }
 }

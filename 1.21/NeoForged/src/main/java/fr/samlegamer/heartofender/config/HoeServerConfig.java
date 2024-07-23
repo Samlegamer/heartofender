@@ -1,52 +1,48 @@
 package fr.samlegamer.heartofender.config;
 
-import com.legacy.structure_gel.api.config.StructureConfig;
-
-import fr.samlegamer.heartofender.dimension.HoeDimensionRegistry;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec.ConfigValue;
 
 public class HoeServerConfig
 {
 	//Overworld
-	public final ForgeConfigSpec.BooleanValue generateAzuriumOre;
-	public final ForgeConfigSpec.IntValue YmaxAzuriumOre;
-	public final ForgeConfigSpec.IntValue AzuriumOreMax;
-	public final ForgeConfigSpec.IntValue AzuriumOreChance;
+	public final ConfigValue<Boolean>  generateAzuriumOre;
+	public final ConfigValue<Integer> YmaxAzuriumOre;
+	public final ConfigValue<Integer> AzuriumOreMax;
+	public final ConfigValue<Integer> AzuriumOreChance;
 	
 	//Misc
-	public final ForgeConfigSpec.IntValue UseCountFlintAndAzurium;
-	public final ForgeConfigSpec.BooleanValue FoilDiamondApple;
-	public final ForgeConfigSpec.IntValue AzuriumArmorDurability;
-	public final ForgeConfigSpec.IntValue AzuriumArmorEnchantability;
-	public final ForgeConfigSpec.IntValue AzuriumToolDurability;
-	public final ForgeConfigSpec.IntValue AzuriumToolEnchantability;
-	public final ForgeConfigSpec.IntValue MilathiumArmorDurability;
-	public final ForgeConfigSpec.IntValue MilathiumArmorEnchantability;
-	public final ForgeConfigSpec.IntValue MilathiumToolDurability;
-	public final ForgeConfigSpec.IntValue MilathiumToolEnchantability;
-	public final ForgeConfigSpec.IntValue UseCountFlintAndMilathium;
+	public final ConfigValue<Integer> UseCountFlintAndAzurium;
+	public final ConfigValue<Boolean> FoilDiamondApple;
+	public final ConfigValue<Integer> AzuriumArmorDurability;
+	public final ConfigValue<Integer> AzuriumArmorEnchantability;
+	public final ConfigValue<Integer> AzuriumToolDurability;
+	public final ConfigValue<Integer> AzuriumToolEnchantability;
+	public final ConfigValue<Integer> MilathiumArmorDurability;
+	public final ConfigValue<Integer> MilathiumArmorEnchantability;
+	public final ConfigValue<Integer> MilathiumToolDurability;
+	public final ConfigValue<Integer> MilathiumToolEnchantability;
+	public final ConfigValue<Integer> UseCountFlintAndMilathium;
 	
-    public final StructureConfig HeartEnderShip;
-    public final StructureConfig HeartofEnderFortress;
+   // public final StructureConfig HeartEnderShip;
+    //public final StructureConfig HeartofEnderFortress;
 
     //Quark
-	public final ForgeConfigSpec.BooleanValue quarkCompat;
-	public final ForgeConfigSpec.BooleanValue quarkChestModule;
+	public final ConfigValue<Boolean> quarkCompat;
+	public final ConfigValue<Boolean> quarkChestModule;
 
     //Charm
-	public final ForgeConfigSpec.BooleanValue charmCompat;
-	public final ForgeConfigSpec.BooleanValue charmBarrelModule;
+	public final ConfigValue<Boolean> charmCompat;
+	public final ConfigValue<Boolean> charmBarrelModule;
 
     //Aquaculture
-	public final ForgeConfigSpec.BooleanValue aquacultureCompat;
+	public final ConfigValue<Boolean> aquacultureCompat;
 	
-	public final ForgeConfigSpec.BooleanValue MoreCraftingTablesCompat;
+	public final ConfigValue<Boolean> MoreCraftingTablesCompat;
 	
-	public final ForgeConfigSpec.BooleanValue NoTreePunchingCompat;
+	public final ConfigValue<Boolean> NoTreePunchingCompat;
 
-	public HoeServerConfig(final ForgeConfigSpec.Builder build)
+	public HoeServerConfig(ModConfigSpec.Builder build)
 	{
 		build.comment("Heart of Ender Config File !");
 		
@@ -72,8 +68,8 @@ public class HoeServerConfig
 
 		build.pop();
 		build.push("Structures");
-		this.HeartEnderShip = structureBuilder(build, "Heart of Ender Ship", 25, 6, 2, true, "heartofender:heartofender_wastes", HoeDimensionRegistry.HEART_OF_ENDER);
-		this.HeartofEnderFortress = structureBuilder(build, "Heart of Ender Fortress", 50, 6, 15, true, "heartofender:heartofender_wastes", HoeDimensionRegistry.HEART_OF_ENDER);
+		//this.HeartEnderShip = structureBuilder(build, "Heart of Ender Ship", 25, 6, 2, true, "heartofender:heartofender_wastes", HoeDimensionRegistry.HEART_OF_ENDER);
+		//this.HeartofEnderFortress = structureBuilder(build, "Heart of Ender Fortress", 50, 6, 15, true, "heartofender:heartofender_wastes", HoeDimensionRegistry.HEART_OF_ENDER);
 
 		build.pop();
 		build.push("Compats");
@@ -105,23 +101,23 @@ public class HoeServerConfig
 		build.push("To modify the generation data of the dimensions go through the Datapacks!");
 	}
 	
-	public static ForgeConfigSpec.BooleanValue boolBuilder(ForgeConfigSpec.Builder build, String name, String chapter, boolean valueDefault, String desc)
+	public static ConfigValue<Boolean> boolBuilder(ModConfigSpec.Builder build, String name, String chapter, boolean valueDefault, String desc)
 	{
 		return build.comment(desc).translation(name).define(name, valueDefault);
 	}
 	
-	public static ForgeConfigSpec.IntValue intBuilder(ForgeConfigSpec.Builder builder, String name, String catagory, int defaultValue, int min, int max, String desc)
+	public static ConfigValue<Integer> intBuilder(ModConfigSpec.Builder builder, String name, String catagory, int defaultValue, int min, int max, String desc)
 	{
         return builder.comment(desc).translation(name).defineInRange(name, defaultValue, min, max);
 	}
 	
-	public static ForgeConfigSpec.DoubleValue doubleBuilder(ForgeConfigSpec.Builder builder, String name, String catagory, double defaultValue, double min, double max, String desc)
+	public static ConfigValue<Double> doubleBuilder(ModConfigSpec.Builder builder, String name, String catagory, double defaultValue, double min, double max, String desc)
 	{
         return builder.comment(desc).translation(name).defineInRange(name, defaultValue, min, max);
 	}
 	
-	public StructureConfig structureBuilder(ForgeConfigSpec.Builder builder, String name, int spacing, int off, int prob, boolean isWhite, String biomes, ResourceKey<Level> heartOfEnder)
+	/*public StructureConfig structureBuilder(ModConfigSpec.Builder builder, String name, int spacing, int off, int prob, boolean isWhite, String biomes, ResourceKey<Level> heartOfEnder)
 	{
         return new StructureConfig(builder, name).probability(prob).spacing(spacing).offset(off).biomes(isWhite, biomes).validDimensions(heartOfEnder.location().toString());
-    }
+    }*/
 }

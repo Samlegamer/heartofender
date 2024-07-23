@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "heartofender:blocks/lilac_planks"
+    "all": "heartofender:block/lilac_planks"
   }
 }

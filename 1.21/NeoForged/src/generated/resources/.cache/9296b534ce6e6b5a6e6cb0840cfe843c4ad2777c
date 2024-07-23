@@ -1,0 +1,21 @@
+// 1.21	2024-07-23T19:27:46.2105761	Tags for minecraft:block mod id heartofender
+783216ddf062a09b426b0f75ce8a51bdb9c1aa16 data/minecraft/tags/block/beacon_base_blocks.json
+857f77764fdabc6d14166b1309b0efe5eacd45c0 data/minecraft/tags/block/campfires.json
+0c96644f4c698cf8485b7bfc804c68f6175c65f9 data/minecraft/tags/block/climbable.json
+baf1654b62ceb1ca8c113369f8e5dec06fd58bf0 data/minecraft/tags/block/fences.json
+542fd35a017489d95e97389aec96bc5becd8a06d data/minecraft/tags/block/fence_gates.json
+12b80a37e9750bd73ea6143682dab389df4fbfb0 data/minecraft/tags/block/mineable/axe.json
+5e17285e73ff343cd0735bbcfba11febf0bc36f7 data/minecraft/tags/block/mineable/hoe.json
+ae4d9a1109ad22879bef406b0817bf4df22bee5d data/minecraft/tags/block/mineable/pickaxe.json
+28057e3fa7d48f6becdb1ff83d12ddbd3f00c13b data/minecraft/tags/block/mineable/shovel.json
+f213208a59957effa7eccb98283b8048d072325c data/minecraft/tags/block/mushroom_grow_block.json
+8b3be7854cbcf4f32aac7ab01a693a728d4910e5 data/minecraft/tags/block/needs_diamond_tool.json
+54dfe35797f66558a1926a001bd95f97174f238c data/minecraft/tags/block/needs_iron_tool.json
+f213208a59957effa7eccb98283b8048d072325c data/minecraft/tags/block/nylium.json
+852cd5bdec17ab9b537179a53955f623a8d2981f data/minecraft/tags/block/planks.json
+28057e3fa7d48f6becdb1ff83d12ddbd3f00c13b data/minecraft/tags/block/soul_speed_blocks.json
+5d3c70d958ee698b19bea314cea952404438f3d9 data/minecraft/tags/block/stone_buttons.json
+d2210315562551dc07a26e67acd0583f9b7148d2 data/minecraft/tags/block/stone_pressure_plates.json
+d9e634323ac2de8a89590441b5818d146d155b88 data/minecraft/tags/block/wooden_buttons.json
+6fb6931e02aed4cf0c3cc522752722c15b1f2df5 data/minecraft/tags/block/wooden_fences.json
+9fa6132d5191cdb8a1d8a373f99deeb2bf0e2218 data/minecraft/tags/block/wooden_pressure_plates.json

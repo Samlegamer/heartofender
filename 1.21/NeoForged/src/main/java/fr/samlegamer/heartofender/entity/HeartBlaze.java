@@ -7,26 +7,19 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Blaze;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import net.minecraftforge.network.PlayMessages;
+import net.minecraft.world.level.pathfinder.PathType;
 
 public class HeartBlaze extends Blaze
 {
-	   @SuppressWarnings({ "rawtypes" })
-	   public HeartBlaze(EntityType typeentity, Level level)
+	   public HeartBlaze(EntityType<HeartBlaze> typeentity, Level level)
 	   {
 	      super(typeentity, level);
-	      this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
-	      this.setPathfindingMalus(BlockPathTypes.LAVA, 8.0F);
-	      this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 0.0F);
-	      this.setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, 0.0F);
+	      this.setPathfindingMalus(PathType.WATER, -1.0F);
+	      this.setPathfindingMalus(PathType.LAVA, 8.0F);
+	      this.setPathfindingMalus(PathType.DANGER_FIRE, 0.0F);
+	      this.setPathfindingMalus(PathType.DAMAGE_FIRE, 0.0F);
 	      this.xpReward = 20;
 	   }
-	   
-	    public HeartBlaze(PlayMessages.SpawnEntity spawnEntity, Level worldIn)
-	    {
-	        this(HoeEntityRegistry.HEART_BLAZE, worldIn);
-	    }
 	    
 	    @Override
 	    public boolean causeFallDamage(float p_147187_, float p_147188_, DamageSource p_147189_)

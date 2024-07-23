@@ -2,16 +2,14 @@ package fr.samlegamer.heartofender.block;
 
 import java.util.Map;
 import java.util.Random;
-
 import javax.annotation.Nullable;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-
 import fr.samlegamer.heartofender.particle.HoeParticleRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -28,16 +26,16 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 public class GreenWallTorchBlock extends GreenTorchBlock
 {
 	   public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	   private static final Map<Direction, VoxelShape> AABBS = Maps.newEnumMap(ImmutableMap.of(Direction.NORTH, Block.box(5.5D, 3.0D, 11.0D, 10.5D, 13.0D, 16.0D), Direction.SOUTH, Block.box(5.5D, 3.0D, 0.0D, 10.5D, 13.0D, 5.0D), Direction.WEST, Block.box(11.0D, 3.0D, 5.5D, 16.0D, 13.0D, 10.5D), Direction.EAST, Block.box(0.0D, 3.0D, 5.5D, 5.0D, 13.0D, 10.5D)));
 
-	   public GreenWallTorchBlock(BlockBehaviour.Properties p_i241193_1_) {
-	      super(p_i241193_1_);
+	   public GreenWallTorchBlock(SimpleParticleType p_304940_, BlockBehaviour.Properties p_i241193_1_) {
+	      super(p_304940_, p_i241193_1_);
 	      this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	   }
 

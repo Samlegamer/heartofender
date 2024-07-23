@@ -7,13 +7,13 @@ import fr.samlegamer.heartofender.entity.models.HerobrineModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class HerobrineRender extends HumanoidMobRenderer<Herobrine, HerobrineModel>
 {
-	private static final ResourceLocation HEROBRINE_LOCATION = new ResourceLocation(HeartofEnder.MODID, "textures/entity/herobrine/mob_herobrine.png");
+	private static final ResourceLocation HEROBRINE_LOCATION = ResourceLocation.withDefaultNamespace(HeartofEnder.MODID + ":textures/entity/herobrine/mob_herobrine.png");
 	    
 	    public HerobrineRender(Context p_173931_)
 	    {

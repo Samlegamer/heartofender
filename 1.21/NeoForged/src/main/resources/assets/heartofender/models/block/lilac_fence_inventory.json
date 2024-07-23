@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_inventory",
   "textures": {
-    "texture": "heartofender:blocks/lilac_planks"
+    "texture": "heartofender:block/lilac_planks"
   }
 }

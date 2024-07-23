@@ -1,12 +1,12 @@
 {
   "parent": "heartofender:block/quark/chest",
   "textures": {
-    "particle": "heartofender:blocks/chest/leafy_face",
-    "north": "heartofender:blocks/chest/leafy_back",
-    "south": "heartofender:blocks/chest/leafy_face",
-    "east": "heartofender:blocks/chest/leafy_cote_l",
-    "west": "heartofender:blocks/chest/leafy_cote_r",
-    "up": "heartofender:blocks/chest/leafy_top",
-    "down": "heartofender:blocks/chest/leafy_bottom"
+    "particle": "heartofender:block/chest/leafy_face",
+    "north": "heartofender:block/chest/leafy_back",
+    "south": "heartofender:block/chest/leafy_face",
+    "east": "heartofender:block/chest/leafy_cote_l",
+    "west": "heartofender:block/chest/leafy_cote_r",
+    "up": "heartofender:block/chest/leafy_top",
+    "down": "heartofender:block/chest/leafy_bottom"
   }
 }

@@ -1,6 +1,6 @@
 package fr.samlegamer.heartofender.item;
 
-import fr.samlegamer.heartofender.block.AbstractPurpleFireBlock;
+import fr.samlegamer.heartofender.block.BaseHoeFireBlock;
 import fr.samlegamer.heartofender.block.GreenCampfire;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -34,17 +35,15 @@ public class FlintAndMilathiumItem extends Item
 		      BlockState blockstate = level.getBlockState(blockpos);
 		      if (!GreenCampfire.canLight(blockstate) && !CandleBlock.canLight(blockstate) && !CandleCakeBlock.canLight(blockstate)) {
 		         BlockPos blockpos1 = blockpos.relative(p_41297_.getClickedFace());
-		         if (AbstractPurpleFireBlock.canBePlacedAt(level, blockpos1, p_41297_.getHorizontalDirection())) {
+		         if (BaseHoeFireBlock.canBePlacedAt(level, blockpos1, p_41297_.getHorizontalDirection())) {
 		            level.playSound(player, blockpos1, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
-		            BlockState blockstate1 = AbstractPurpleFireBlock.getState(level, blockpos1);
+		            BlockState blockstate1 = BaseHoeFireBlock.getState(level, blockpos1);
 		            level.setBlock(blockpos1, blockstate1, 11);
 		            level.gameEvent(player, GameEvent.BLOCK_PLACE, blockpos);
 		            ItemStack itemstack = p_41297_.getItemInHand();
 		            if (player instanceof ServerPlayer) {
 		               CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer)player, blockpos1, itemstack);
-		               itemstack.hurtAndBreak(1, player, (p_41300_) -> {
-		                  p_41300_.broadcastBreakEvent(p_41297_.getHand());
-		               });
+		               itemstack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(p_41297_.getHand()));
 		            }
 
 		            return InteractionResult.sidedSuccess(level.isClientSide());
@@ -56,9 +55,7 @@ public class FlintAndMilathiumItem extends Item
 		         level.setBlock(blockpos, blockstate.setValue(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
 		         level.gameEvent(player, GameEvent.BLOCK_PLACE, blockpos);
 		         if (player != null) {
-		            p_41297_.getItemInHand().hurtAndBreak(1, player, (p_41303_) -> {
-		               p_41303_.broadcastBreakEvent(p_41297_.getHand());
-		            });
+		            p_41297_.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(p_41297_.getHand()));
 		         }
 
 		         return InteractionResult.sidedSuccess(level.isClientSide());

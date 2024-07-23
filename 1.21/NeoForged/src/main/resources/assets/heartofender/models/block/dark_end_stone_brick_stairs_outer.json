@@ -1,8 +1,8 @@
 {
     "parent": "block/outer_stairs",
     "textures": {
-        "bottom": "heartofender:blocks/dark_end_stone_brick",
-        "top": "heartofender:blocks/dark_end_stone_brick",
-        "side": "heartofender:blocks/dark_end_stone_brick"
+        "bottom": "heartofender:block/dark_end_stone_brick",
+        "top": "heartofender:block/dark_end_stone_brick",
+        "side": "heartofender:block/dark_end_stone_brick"
     }
 }

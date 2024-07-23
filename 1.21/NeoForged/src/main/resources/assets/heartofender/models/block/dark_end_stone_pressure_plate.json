@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/pressure_plate_up",
   "textures": {
-    "texture": "heartofender:blocks/dark_end_stone"
+    "texture": "heartofender:block/dark_end_stone"
   }
 }

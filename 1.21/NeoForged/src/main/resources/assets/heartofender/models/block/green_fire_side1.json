@@ -1,6 +1,6 @@
 {
   "parent": "heartofender:block/template_green_fire_side",
   "textures": {
-    "fire": "heartofender:blocks/green_fire_1"
+    "fire": "heartofender:block/green_fire_1"
   }
 }

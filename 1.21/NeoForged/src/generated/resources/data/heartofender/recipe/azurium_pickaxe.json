@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "/": {
+      "item": "heartofender:black_rod"
+    },
+    "A": {
+      "item": "heartofender:azurium_ingot"
+    }
+  },
+  "pattern": [
+    "AAA",
+    " / ",
+    " / "
+  ],
+  "result": {
+    "count": 1,
+    "id": "heartofender:azurium_pickaxe"
+  }
+}

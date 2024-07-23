@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "heartofender:blocks/stripped_lilac_stem_top",
-    "side": "heartofender:blocks/stripped_lilac_stem"
+    "end": "heartofender:block/stripped_lilac_stem_top",
+    "side": "heartofender:block/stripped_lilac_stem"
   }
 }

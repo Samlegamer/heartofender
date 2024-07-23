@@ -153,6 +153,6 @@
 	"entity.heartofender.heart_skeleton": "Heart Skeleton",	
 	
 	//Items Group
-	"itemGroup.heartofender_blocks": "Blocks du Coeur de l'End",
-  	"itemGroup.heartofender_items": "Items du Coeur de l'End"
+	"itemGroup.heartofender.heartofender_blocks": "Blocks du Coeur de l'End",
+  	"itemGroup.heartofender.heartofender_items": "Items du Coeur de l'End"
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/button_inventory",
   "textures": {
-    "texture": "heartofender:blocks/leafy_planks"
+    "texture": "heartofender:block/leafy_planks"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "heartofender:blocks/lilac_weeping_vines"
+    "cross": "heartofender:block/lilac_weeping_vines"
   }
 }

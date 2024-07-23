@@ -1,6 +1,6 @@
 package fr.samlegamer.heartofender.block;
 
-import com.google.common.base.Supplier;
+import java.util.function.Supplier;
 import fr.samlegamer.heartofender.core.HeartofEnder;
 import fr.samlegamer.heartofender.features.hoe.HoeFeatures;
 import fr.samlegamer.heartofender.item.HoeItemsRegistry;
@@ -14,9 +14,11 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.LanternBlock;
+import net.minecraft.world.level.block.MagmaBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.SoulSandBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
@@ -44,11 +46,9 @@ public class HoeBlocksRegistry
     public static final DeferredBlock<Block> DARK_END_STONE_BUTTON = createBlock("dark_end_stone_button", () -> new ButtonBlock(BlockSetType.STONE, 20, HoeBlocksUtils.DARK_BUTTON));
     public static final DeferredBlock<Block> DARK_END_STONE_BRICK_BUTTON = createBlock("dark_end_stone_brick_button", () -> new ButtonBlock(BlockSetType.STONE, 20, HoeBlocksUtils.DARK_BUTTON));
     public static final DeferredBlock<Block> PURPLE_GLOWSTONE = createBlock("purple_glowstone", () -> new Block(HoeBlocksUtils.GLOWSTONE_BASE.lightLevel((p_235468_0_) -> { return 20; })));
-    public static final DeferredBlock<Block> BLUE_MAGMA_BLOCK = createBlock("blue_magma_block", () -> new MagmaBlueBlock(4, 13, SoundType.STONE));
-    public static final DeferredBlock<Block> DEAD_SOUL_SAND = createBlock("dead_sand", () -> new SandDeadBlock(BlockBehaviour.Properties.of().strength(2f, 3f).sound(SoundType.SOUL_SAND).speedFactor(0.4F).isValidSpawn(HoeBlocksUtils::always).isRedstoneConductor(HoeBlocksUtils::always).isViewBlocking(HoeBlocksUtils::always).isSuffocating(HoeBlocksUtils::always)));
+    public static final DeferredBlock<Block> BLUE_MAGMA_BLOCK = createBlock("blue_magma_block", () -> new MagmaBlock(BlockBehaviour.Properties.of().strength(4f, 13f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> DEAD_SOUL_SAND = createBlock("dead_sand", () -> new SoulSandBlock(BlockBehaviour.Properties.of().strength(2f, 3f).sound(SoundType.SOUL_SAND).speedFactor(0.4F).isValidSpawn(HoeBlocksUtils::always).isRedstoneConductor(HoeBlocksUtils::always).isViewBlocking(HoeBlocksUtils::always).isSuffocating(HoeBlocksUtils::always)));
     public static final DeferredBlock<Block> DEAD_SOUL_SOIL = createBlock("dead_soul_soil", () -> new Block(BlockBehaviour.Properties.of().strength(2f, 3f).sound(SoundType.SOUL_SOIL)));
-    public static final DeferredBlock<Block> GREEN_LANTERN = createBlock("green_lantern", () -> new LanternBlock(HoeBlocksUtils.LANTERNS.lightLevel((p_235443_0_) -> {return 20;})));
-    public static final DeferredBlock<Block> GREEN_CAMPFIRE = createBlock("green_campfire", () -> new GreenCampfire(true, 3, HoeBlocksUtils.CAMPFIRES.lightLevel((p_235468_0_) ->{return 15;})));
     
     public static final DeferredBlock<Block> AZURIUM_ORE = createBlock("azurium_ore", () -> new Block(HoeBlocksUtils.STONE_BASE.strength(5f, 15f)));
     public static final DeferredBlock<Block> DEEPSLATE_AZURIUM_ORE = createBlock("deepslate_azurium_ore", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.DEEPSLATE).requiresCorrectToolForDrops().strength(6.5F, 15F)));
@@ -88,27 +88,29 @@ public class HoeBlocksRegistry
     public static final DeferredBlock<Block> LEAFY_TRAPDOOR = createBlock("leafy_trapdoor", () -> new TrapDoorBlock(BlockSetType.WARPED, BlockBehaviour.Properties.of().strength(3.0F).sound(SoundType.WOOD).noOcclusion().isValidSpawn(HoeBlocksUtils::never)));
     public static final DeferredBlock<Block> LILAC_NYLIUM = createBlock("lilac_nylium", () -> new NyliumBlockHoe(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_NYLIUM).sound(SoundType.STONE)));
     public static final DeferredBlock<Block> LEAFY_NYLIUM = createBlock("leafy_nylium", () -> new NyliumBlockHoe(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_NYLIUM).sound(SoundType.STONE)));
-    public static final DeferredBlock<Block> LEAFY_FUNGUS = createBlock("leafy_fungus", () -> new HoeFungusBlock(BlockBehaviour.Properties.of().instabreak().noCollission().sound(SoundType.FUNGUS),()->{return HoeFeatures.Tree.LEAFY_FUNGUS_PLANTED;}));
+   // public static final DeferredBlock<Block> LEAFY_FUNGUS = createBlock("leafy_fungus", () -> new HoeFungusBlock(HoeFeatures.LEAFY_FUNGUS_PLANTED, LEAFY_NYLIUM.get(), BlockBehaviour.Properties.of().instabreak().noCollission().sound(SoundType.FUNGUS)));
     public static final DeferredBlock<Block> LEAFY_ROOTS = createBlock("leafy_roots", () -> new HoeRootsBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.ROOTS)));
     public static final DeferredBlock<Block> HEART_OF_ENDER_SPROUTS = createBlock("heart_of_ender_sprouts", () -> new HoeSproutsBlock(BlockBehaviour.Properties.of().instabreak().noCollission().sound(SoundType.FUNGUS)));
-    public static final DeferredBlock<Block> LILAC_FUNGUS = createBlock("lilac_fungus", () -> new HoeFungusBlock(BlockBehaviour.Properties.of().instabreak().noCollission().sound(SoundType.FUNGUS),()->{return HoeFeatures.Tree.LILAC_FUNGUS_PLANTED;}));
+    //public static final DeferredBlock<Block> LILAC_FUNGUS = createBlock("lilac_fungus", () -> new HoeFungusBlock(HoeFeatures.LILAC_FUNGUS_PLANTED, LILAC_NYLIUM.get(), BlockBehaviour.Properties.of().instabreak().noCollission().sound(SoundType.FUNGUS)));
     public static final DeferredBlock<Block> LILAC_WEEPING_VINES = createBlock("lilac_weeping_vines", () -> new HoeWeepingVinesBlock(BlockBehaviour.Properties.of().randomTicks().noCollission().instabreak().sound(SoundType.WEEPING_VINES)));
     public static final DeferredBlock<Block> LEAFY_TWISTING_VINES = createBlock("leafy_twisting_vines", () -> new HoeTwistingVinesBlock(BlockBehaviour.Properties.of().randomTicks().noCollission().instabreak().sound(SoundType.WEEPING_VINES)));
     public static final DeferredBlock<Block> LILAC_ROOTS = createBlock("lilac_roots", () -> new HoeRootsBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.ROOTS)));
     public static final DeferredBlock<Block> SOUL_SHROOMLIGHT = createBlock("soul_shroomlight", () -> new Block(BlockBehaviour.Properties.of().strength(1.0F).sound(SoundType.SHROOMLIGHT).lightLevel((p_152663_) -> {return 20;})));
     public static final DeferredBlock<Block> LILAC_SHROOMLIGHT = createBlock("lilac_shroomlight", () -> new Block(BlockBehaviour.Properties.of().strength(1.0F).sound(SoundType.SHROOMLIGHT).lightLevel((p_152663_) -> {return 20;})));
     
+    public static final DeferredBlock<Block> GREEN_LANTERN = createBlock("green_lantern", () -> new LanternBlock(HoeBlocksUtils.LANTERNS.lightLevel((p_235443_0_) -> {return 20;})));
+    public static final DeferredBlock<Block> GREEN_CAMPFIRE = createBlock("green_campfire", () -> new GreenCampfire(true, 3, HoeBlocksUtils.CAMPFIRES.lightLevel((p_235468_0_) ->{return 15;})));
     public static final DeferredBlock<Block> PURPLE_LANTERN = createBlock("purple_lantern", () -> new LanternBlock(HoeBlocksUtils.LANTERNS.lightLevel((p_235443_0_) -> {return 35;})));
     public static final DeferredBlock<Block> PURPLE_CAMPFIRE = createBlock("purple_campfire", () -> new GreenCampfire(false, 5, HoeBlocksUtils.CAMPFIRES.lightLevel((p_235468_0_) ->{return 20;})));
 
     public static final DeferredBlock<Block> LEAFY_TWISTING_VINES_PLANT = REGISTRY_BLOCKS.register("leafy_twisting_vines_plant", () -> new HoeTwistingVinesPlantBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.WEEPING_VINES)));
     public static final DeferredBlock<Block> LILAC_WEEPING_VINES_PLANT = REGISTRY_BLOCKS.register("lilac_weeping_vines_plant", () -> new HoeWeepingVinesPlantBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.WEEPING_VINES)));
-    public static final DeferredBlock<HeartWartBlock> HEART_ENDER_WART_BLOCK = REGISTRY_BLOCKS.register("heart_ender_wart_block", () -> new HeartWartBlock(BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.NETHER_WART)));
-    public static final DeferredBlock<GreenFireBlock> GREEN_FIRE = REGISTRY_BLOCKS.register("green_fire", () -> new GreenFireBlock(HoeBlocksUtils.FIRE_BASE.lightLevel((p_235468_0_) -> {return 30;})));   
-    public static final DeferredBlock<PurpleFireBlock> PURPLE_FIRE = REGISTRY_BLOCKS.register("purple_fire", () -> new PurpleFireBlock(HoeBlocksUtils.FIRE_BASE.lightLevel((p_235468_0_) -> {return 40;})));
+    //public static final DeferredBlock<HeartWartBlock> HEART_ENDER_WART_BLOCK = REGISTRY_BLOCKS.register("heart_ender_wart_block", () -> new HeartWartBlock(BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.NETHER_WART)));
+    public static final DeferredBlock<GreenFire> GREEN_FIRE = REGISTRY_BLOCKS.register("green_fire", () -> new GreenFire(HoeBlocksUtils.FIRE_BASE.lightLevel((p_235468_0_) -> {return 30;})));   
+    public static final DeferredBlock<PurpleFire> PURPLE_FIRE = REGISTRY_BLOCKS.register("purple_fire", () -> new PurpleFire(HoeBlocksUtils.FIRE_BASE.lightLevel((p_235468_0_) -> {return 40;})));
     //public static final DeferredBlock<Block> HOE_PORTAL = REGISTRY_BLOCKS.register("heart_of_ender_portal", () -> new HOEPortal(() -> Level.OVERWORLD, HoeDimensionRegistry::HoeKey, () -> HoePOI.HEART_OF_ENDER_PORTAL.get(), () -> (GelPortalBlock) HoeBlocksRegistry.HOE_PORTAL.get(), () -> HoeBlocksRegistry.HEART_ENDER_PORTAL_BLOCK.get().defaultBlockState()));
-    public static final DeferredBlock<Block> GREEN_TORCH = REGISTRY_BLOCKS.register("green_torch", () -> new GreenTorchBlock(HoeBlocksUtils.TORCH_BASE.lightLevel((p_235470_0_) -> {return 14;})));
-    public static final DeferredBlock<Block> GREEN_TORCH_WALL = REGISTRY_BLOCKS.register("green_torch_wall", () -> new GreenWallTorchBlock(HoeBlocksUtils.WALL_TORCH_BASE.lootFrom(() -> HoeBlocksRegistry.GREEN_TORCH.get()).lightLevel((p_235470_0_) -> {return 14;})));
+    //public static final DeferredBlock<Block> GREEN_TORCH = REGISTRY_BLOCKS.register("green_torch", () -> new TorchBlock(HoeParticleRegistry.GREEN_FLAME.get(), HoeBlocksUtils.TORCH_BASE.lightLevel(p_50886_ -> 14)));
+    //public static final DeferredBlock<Block> GREEN_TORCH_WALL = REGISTRY_BLOCKS.register("green_torch_wall", () -> new WallTorchBlock(HoeParticleRegistry.GREEN_FLAME.get(), HoeBlocksUtils.WALL_TORCH_BASE.lootFrom(() -> HoeBlocksRegistry.GREEN_TORCH.get()).lightLevel(p_50886_ -> 14).lootFrom(GREEN_TORCH)));
 
     public static DeferredBlock<Block> createBlock(String name, Supplier<? extends Block> supplier)
     {

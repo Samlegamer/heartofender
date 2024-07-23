@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_fence_gate_wall_open",
   "textures": {
-    "texture": "heartofender:blocks/lilac_planks"
+    "texture": "heartofender:block/lilac_planks"
   }
 }

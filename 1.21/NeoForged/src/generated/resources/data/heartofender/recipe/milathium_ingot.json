@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "heartofender:milathium_block"
+    }
+  },
+  "pattern": [
+    "A"
+  ],
+  "result": {
+    "count": 9,
+    "id": "heartofender:milathium_ingot"
+  }
+}

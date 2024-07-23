@@ -9,14 +9,14 @@ import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class HeartGhastRender  extends MobRenderer<HeartGhast, GhastModel<HeartGhast>>
 {
-	   private static final ResourceLocation GHAST_LOCATION = new ResourceLocation(HeartofEnder.MODID, "textures/entity/heartghast/heart_ghast.png");
-	   private static final ResourceLocation GHAST_SHOOTING_LOCATION = new ResourceLocation(HeartofEnder.MODID, "textures/entity/heartghast/heart_ghast_shooting.png");
+	   private static final ResourceLocation GHAST_LOCATION = ResourceLocation.withDefaultNamespace(HeartofEnder.MODID + ":textures/entity/heartghast/heart_ghast.png");
+	   private static final ResourceLocation GHAST_SHOOTING_LOCATION = ResourceLocation.withDefaultNamespace(HeartofEnder.MODID + ":textures/entity/heartghast/heart_ghast_shooting.png");
 
 	   public HeartGhastRender(EntityRendererProvider.Context p_174129_) {
 	      super(p_174129_, new GhastModel<>(p_174129_.bakeLayer(ModelLayers.GHAST)), 1.5F);

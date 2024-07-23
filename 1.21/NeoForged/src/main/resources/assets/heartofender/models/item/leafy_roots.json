@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "heartofender:blocks/leafy_roots"
+    "layer0": "heartofender:block/leafy_roots"
   }
 }

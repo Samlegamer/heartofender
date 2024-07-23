@@ -1,7 +1,7 @@
 {
   "parent": "block/lantern_hanging",
   "textures": {
-    "particle": "heartofender:blocks/purple_gold_lantern",
-    "lantern": "heartofender:blocks/purple_gold_lantern"
+    "particle": "heartofender:block/purple_gold_lantern",
+    "lantern": "heartofender:block/purple_gold_lantern"
   }
 }

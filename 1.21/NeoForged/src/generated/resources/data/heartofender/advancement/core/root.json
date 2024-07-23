@@ -1,0 +1,36 @@
+{
+  "criteria": {
+    "heart_ender_portal_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:crafting_table"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "heartofender:textures/block/dark_end_stone.png",
+    "description": {
+      "translate": "description.firstadvancements"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "heartofender:heart_ender_portal_block"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "titleadvancements.desc"
+    }
+  },
+  "requirements": [
+    [
+      "heart_ender_portal_block"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

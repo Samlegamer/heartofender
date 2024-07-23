@@ -1,20 +1,23 @@
 package fr.samlegamer.heartofender.config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
+
+import com.electronwill.nightconfig.core.ConfigSpec;
+
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class HoeConfigsRegistry
 {
-	public static final ForgeConfigSpec SERVER_CONFIG;
+	public static final ModConfigSpec SERVER_CONFIG;
 
     public static final HoeServerConfig SERVER;
 
     static
     {
         {
-            final Pair<HoeServerConfig, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(HoeServerConfig::new);
-            SERVER = specPair.getLeft();
-            SERVER_CONFIG = specPair.getRight();
+            Pair<HoeServerConfig, ModConfigSpec> pair = new ModConfigSpec.Builder().configure(HoeServerConfig::new);
+            SERVER = pair.getLeft();
+            SERVER_CONFIG = pair.getRight();
         }
     }
 

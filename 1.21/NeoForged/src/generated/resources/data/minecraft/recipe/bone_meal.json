@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "heartofender:heart_bone"
+    }
+  },
+  "pattern": [
+    "A"
+  ],
+  "result": {
+    "count": 6,
+    "id": "minecraft:bone_meal"
+  }
+}

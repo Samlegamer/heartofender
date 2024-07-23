@@ -9,9 +9,9 @@ import net.minecraft.world.item.Tier;
 
 public class HeartBoneSwordItem extends SwordItem
 {
-	public HeartBoneSwordItem(Tier p_43269_, int p_43270_, float p_43271_, Properties p_43272_)
+	public HeartBoneSwordItem(Tier p_43269_, Properties p_43272_)
 	{
-		super(p_43269_, p_43270_, p_43271_, p_43272_);
+		super(p_43269_, p_43272_);
 	}
 	
 	@Override

@@ -2,10 +2,6 @@ package fr.samlegamer.heartofender.structure.struct;
 
 import java.util.Random;
 import javax.annotation.Nullable;
-import com.legacy.structure_gel.api.config.StructureConfig;
-import com.legacy.structure_gel.api.structure.GelConfigStructure;
-import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
-import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
 import com.mojang.serialization.Codec;
 import fr.samlegamer.heartofender.core.HeartofEnder;
 import fr.samlegamer.heartofender.fluids.HoeFluidsRegistry;
@@ -30,14 +26,12 @@ import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
-import net.minecraft.world.level.material.Material;
 
 /*
  * 30 nbt WoW
  */
-public class HeartofEnderFortressStructure extends GelConfigStructure<NoneFeatureConfiguration>
+public class HeartofEnderFortressStructure {} /*extends GelConfigStructure<NoneFeatureConfiguration>
 {
 	private static final ResourceLocation HF1 = HeartofEnder.location("heart_fortress/fortress1");
 	private static final ResourceLocation HF2 = HeartofEnder.location("heart_fortress/fortress2");
@@ -180,4 +174,4 @@ public class HeartofEnderFortressStructure extends GelConfigStructure<NoneFeatur
 			ServerLevel serverLevel = lvl.getLevel();
 		}
 	}
-}
+}*/

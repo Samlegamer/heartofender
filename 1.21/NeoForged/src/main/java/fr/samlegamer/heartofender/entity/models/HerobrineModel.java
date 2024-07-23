@@ -12,8 +12,8 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 /*
  * I used a lot of help from Meet Your Fight for the models
@@ -22,7 +22,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class HerobrineModel extends HumanoidModel<Herobrine>
 {
-	public static final ModelLayerLocation MODEL = new ModelLayerLocation(new ResourceLocation(HeartofEnder.MODID, "ender_kid"), "main");
+	public static final ModelLayerLocation MODEL = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(HeartofEnder.MODID, "ender_kid"), "main");
 	   public static float p_170683_;
 		
 	   public HerobrineModel(ModelPart p_170677_)

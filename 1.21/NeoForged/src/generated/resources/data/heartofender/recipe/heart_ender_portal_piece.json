@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:end_stone"
+    },
+    "X": {
+      "item": "minecraft:popped_chorus_fruit"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "XXX",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "heartofender:heart_ender_portal_piece"
+  }
+}
