@@ -47,7 +47,7 @@ public class HoeBlocksTagsProvider extends BlockTagsProvider
         .add(HoeBlocksRegistry.DARK_END_STONE_BRICK_SLAB.get()).add(HoeBlocksRegistry.DARK_END_STONE_PRESSURE_PLATE.get()).add(HoeBlocksRegistry.DARK_END_STONE_BRICK_PRESSURE_PLATE.get())
         .add(HoeBlocksRegistry.DARK_END_STONE_BUTTON.get()).add(HoeBlocksRegistry.DARK_END_STONE_BRICK_BUTTON.get()).add(HoeBlocksRegistry.BLUE_MAGMA_BLOCK.get())
         .add(HoeBlocksRegistry.HEROBRINE_HEAD.get()).add(HoeBlocksRegistry.GREEN_LANTERN.get()).add(HoeBlocksRegistry.LILAC_NYLIUM.get()).add(HoeBlocksRegistry.LEAFY_NYLIUM.get())
-        .add(HoeBlocksRegistry.SOUL_SHROOMLIGHT.get()).add(HoeBlocksRegistry.LILAC_SHROOMLIGHT.get());
+        .add(HoeBlocksRegistry.SOUL_SHROOMLIGHT.get()).add(HoeBlocksRegistry.LILAC_SHROOMLIGHT.get()).add(HoeBlocksRegistry.PURPLE_LANTERN.get());
         tag(BlockTags.MINEABLE_WITH_HOE).add(HoeBlocksRegistry.LEAFY_WART_BLOCK.get()).add(HoeBlocksRegistry.LILAC_WART_BLOCK.get());
         tag(BlockTags.MINEABLE_WITH_SHOVEL).add(HoeBlocksRegistry.DEAD_SOUL_SAND.get()).add(HoeBlocksRegistry.DEAD_SOUL_SOIL.get());
         
@@ -58,6 +58,6 @@ public class HoeBlocksTagsProvider extends BlockTagsProvider
         .add(HoeBlocksRegistry.LEAFY_FENCE_GATE.get()).add(HoeBlocksRegistry.LILAC_FENCE_GATE.get()).add(HoeBlocksRegistry.LEAFY_SLAB.get()).add(HoeBlocksRegistry.LILAC_SLAB.get())
         .add(HoeBlocksRegistry.LEAFY_PRESSURE_PLATE.get()).add(HoeBlocksRegistry.LILAC_PRESSURE_PLATE.get()).add(HoeBlocksRegistry.LEAFY_BUTTON.get())
         .add(HoeBlocksRegistry.LILAC_BUTTON.get()).add(HoeBlocksRegistry.LILAC_DOOR.get()).add(HoeBlocksRegistry.LEAFY_DOOR.get()).add(HoeBlocksRegistry.LILAC_TRAPDOOR.get())
-        .add(HoeBlocksRegistry.LEAFY_TRAPDOOR.get());
+        .add(HoeBlocksRegistry.LEAFY_TRAPDOOR.get()).add(HoeBlocksRegistry.PURPLE_CAMPFIRE.get());
     }
 }

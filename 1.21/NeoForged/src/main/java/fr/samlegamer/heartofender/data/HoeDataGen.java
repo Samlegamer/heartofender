@@ -3,6 +3,7 @@ package fr.samlegamer.heartofender.data;
 import java.util.concurrent.CompletableFuture;
 import fr.samlegamer.heartofender.core.HeartofEnder;
 import fr.samlegamer.heartofender.data.advancement.HoeAdvancementProvider;
+import fr.samlegamer.heartofender.data.loots.HoeLoot;
 import fr.samlegamer.heartofender.data.recipe.HoeRecipeProvider;
 import fr.samlegamer.heartofender.data.tags.HoeBlocksTagsProvider;
 import fr.samlegamer.heartofender.data.tags.HoeFluidsTagsProvider;
@@ -32,7 +33,7 @@ public class HoeDataGen
         generator.addProvider(event.includeServer(), modBlockTagsProvider);
         generator.addProvider(event.includeServer(), new HoeItemsTagsProvider(output, event.getLookupProvider(), modBlockTagsProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new HoeFluidsTagsProvider(output, event.getLookupProvider(), existingFileHelper));
-        //generator.addProvider(event.includeServer(), new HoeLoot(output, event.getLookupProvider()));
+        generator.addProvider(event.includeServer(), new HoeLoot(output, event.getLookupProvider()));
 
     }
 

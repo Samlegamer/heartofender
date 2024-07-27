@@ -2,19 +2,11 @@ package fr.samlegamer.heartofender.world;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import fr.samlegamer.heartofender.block.HoeBlocksRegistry;
-import fr.samlegamer.heartofender.config.HoeConfigsRegistry;
-import net.minecraft.data.worldgen.features.OreFeatures;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
@@ -30,30 +22,31 @@ public class HoeOreGenerator
     public static final List<PlacedFeature> END_ORES = new ArrayList<>();
     public static final List<PlacedFeature> NETHER_ORES = new ArrayList<>();
 
+    public static final List<OreConfiguration.TargetBlockState>  target_azu = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES),
+            HoeBlocksRegistry.AZURIUM_ORE.get().defaultBlockState()),
+    OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES),
+            HoeBlocksRegistry.DEEPSLATE_AZURIUM_ORE.get().defaultBlockState()));
+    
     public static void registerOres()
-    {/*
+    {
+    	
+    	/*
         final ConfiguredFeature<?, ?> AzuriumOre = Feature.ORE
-                .place(new OreConfiguration(List.of(
-                        OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES),
-                                HoeBlocksRegistry.AZURIUM_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES),
-                                HoeBlocksRegistry.DEEPSLATE_AZURIUM_ORE.get().defaultBlockState())),
+                .place(new OreConfiguration(,
                 		HoeConfigsRegistry.SERVER.AzuriumOreMax.get()));
                         
         if(HoeConfigsRegistry.SERVER.generateAzuriumOre.get())
         {
             final PlacedFeature placedAzuriumOre = PlacementUtils.register("azurium_ore",
-            		AzuriumOre.placed(commonOrePlacement(HoeConfigsRegistry.SERVER.AzuriumOreChance.get(), HeightRangePlacement
-                            .uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(HoeConfigsRegistry.SERVER.YmaxAzuriumOre.get())))));
-            OVERWORLD_ORES.add(placedAzuriumOre);
+            		AzuriumOre.placed(
         }*/
     }
     
-    private static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {
+    public static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {
         return List.of(p_195347_, InSquarePlacement.spread(), p_195348_, BiomeFilter.biome());
      }
 
-     private static List<PlacementModifier> commonOrePlacement(int p_195344_, PlacementModifier p_195345_) {
+     public static List<PlacementModifier> commonOrePlacement(int p_195344_, PlacementModifier p_195345_) {
         return orePlacement(CountPlacement.of(p_195344_), p_195345_);
      }
 

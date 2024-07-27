@@ -4,11 +4,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 import fr.samlegamer.heartofender.core.HeartofEnder;
 import fr.samlegamer.heartofender.entity.BlueMagmaCube;
-import net.minecraft.client.model.LavaSlimeModel;
-import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MagmaCubeRenderer;
-import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;

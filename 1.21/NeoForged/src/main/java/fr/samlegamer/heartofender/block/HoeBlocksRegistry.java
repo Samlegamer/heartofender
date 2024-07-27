@@ -2,7 +2,6 @@ package fr.samlegamer.heartofender.block;
 
 import java.util.function.Supplier;
 import fr.samlegamer.heartofender.core.HeartofEnder;
-import fr.samlegamer.heartofender.features.hoe.HoeFeatures;
 import fr.samlegamer.heartofender.item.HoeItemsRegistry;
 import fr.samlegamer.heartofender.utils.HoeBlocksUtils;
 import net.minecraft.world.item.BlockItem;

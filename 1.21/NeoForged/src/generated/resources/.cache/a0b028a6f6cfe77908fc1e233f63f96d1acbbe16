@@ -1,2 +1,22 @@
-// 1.21	2024-07-23T20:18:37.9862787	Tags for minecraft:item mod id heartofender
+// 1.21	2024-07-24T16:57:05.9234409	Tags for minecraft:item mod id heartofender
+7c06b94d774cc03d0486c1157c3690ddeea5b3c7 data/minecraft/tags/item/axes.json
 53bf3fbf21877fc1ef4b2566031160d53a7d8f9a data/minecraft/tags/item/beacon_payment_items.json
+6e8071b81b7390e66fa2ab9803d40a3e6e4f8a95 data/minecraft/tags/item/cluster_max_harvestables.json
+931f8d262d031decfe9f4f21d11a55a5e857bf3b data/minecraft/tags/item/fences.json
+542fd35a017489d95e97389aec96bc5becd8a06d data/minecraft/tags/item/fence_gates.json
+04b119a73c149a79c677012ffe92a0beef838486 data/minecraft/tags/item/logs.json
+6e8071b81b7390e66fa2ab9803d40a3e6e4f8a95 data/minecraft/tags/item/pickaxes.json
+852cd5bdec17ab9b537179a53955f623a8d2981f data/minecraft/tags/item/planks.json
+0d54267169c0df4a23b67546ef915fc50cd2aaa0 data/minecraft/tags/item/shovels.json
+3d03e4cdbe86e054296c5e6c7bdc3752ec9090c8 data/minecraft/tags/item/stairs.json
+059ec4867304928a3c19d3ae717755f6e7c75447 data/minecraft/tags/item/stone_buttons.json
+18d1f38577fe4174769bddd7ba179e97bd0a2e68 data/minecraft/tags/item/stone_crafting_materials.json
+18d1f38577fe4174769bddd7ba179e97bd0a2e68 data/minecraft/tags/item/stone_tool_materials.json
+01e62bb286f26ed6128276d12b88eb9d343409fe data/minecraft/tags/item/swords.json
+d9e634323ac2de8a89590441b5818d146d155b88 data/minecraft/tags/item/wooden_buttons.json
+2b10520ddae4e2fa0d099252758ececd281323f1 data/minecraft/tags/item/wooden_doors.json
+6fb6931e02aed4cf0c3cc522752722c15b1f2df5 data/minecraft/tags/item/wooden_fences.json
+9fa6132d5191cdb8a1d8a373f99deeb2bf0e2218 data/minecraft/tags/item/wooden_pressure_plates.json
+4341c110ea1780b6abd93ffd264d6e33553ba45b data/minecraft/tags/item/wooden_slabs.json
+a0e395efd27299da683216deab1f735deea9a44b data/minecraft/tags/item/wooden_stairs.json
+f4326f98e75aae2de85e5a8eca627cf03eb67018 data/minecraft/tags/item/wooden_trapdoors.json

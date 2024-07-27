@@ -3,6 +3,7 @@ package fr.samlegamer.heartofender.data.recipe;
 import java.util.concurrent.CompletableFuture;
 
 import fr.samlegamer.heartofender.block.HoeBlocksRegistry;
+import fr.samlegamer.heartofender.core.HeartofEnder;
 import fr.samlegamer.heartofender.item.HoeItemsRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -12,6 +13,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
@@ -56,6 +58,15 @@ public class HoeRecipeProvider extends RecipeProvider
         .define('A', item)
         .unlockedBy("has_"+hasitem, has(item))
         .save(output);
+	}
+	
+	private void recipeOneBlockToBlockOrItem(RecipeOutput output, RecipeCategory category, ItemLike item, String hasitem, ItemLike result, int count, String rl)
+	{
+		ShapedRecipeBuilder.shaped(category, result, count)
+        .pattern("A")
+        .define('A', item)
+        .unlockedBy("has_"+hasitem, has(item))
+        .save(output, ResourceLocation.fromNamespaceAndPath(HeartofEnder.MODID, result.asItem().toString()+rl));
 	}
 	
 	/*Used for Bricks or Magma*/
@@ -154,10 +165,23 @@ public class HoeRecipeProvider extends RecipeProvider
         .save(output);
 	}
 	
-	private void recipeFurnaceOre(ItemLike item, ItemLike result)
+	private void recipeendercheststyle(RecipeOutput output, RecipeCategory category, ItemLike item, String hasitem, ItemLike item2, String hasitem2, ItemLike result, int count, String rl)
 	{
-		SimpleCookingRecipeBuilder.smelting(Ingredient.of(item), RecipeCategory.MISC, result, 0.5f, 200);
-		SimpleCookingRecipeBuilder.blasting(Ingredient.of(item), RecipeCategory.MISC, result, 0.5f, 100);
+		ShapedRecipeBuilder.shaped(category, result, count)
+        .pattern("AAA")
+        .pattern("AXA")
+        .pattern("AAA")
+        .define('A', item)
+        .define('X', item2)
+        .unlockedBy("has_"+hasitem, has(item)).unlockedBy("has_"+hasitem2, has(item2))
+        .save(output, ResourceLocation.fromNamespaceAndPath(HeartofEnder.MODID, result.asItem().toString()+rl));
+	}
+
+	
+	private void recipeFurnaceOre(RecipeOutput output, ItemLike item, ItemLike result)
+	{
+		SimpleCookingRecipeBuilder.smelting(Ingredient.of(item), RecipeCategory.MISC, result, 0.5f, 200).save(output, result.asItem().toString()+"_smelting");
+		SimpleCookingRecipeBuilder.blasting(Ingredient.of(item), RecipeCategory.MISC, result, 0.5f, 100).save(output, result.asItem().toString()+"_blasting");
 	}
 	
 	private void recipeFlintAnd(RecipeOutput output, ItemLike item, String hasitem, ItemLike result)
@@ -181,15 +205,15 @@ public class HoeRecipeProvider extends RecipeProvider
     	recipeOneBlockToBlockOrItem(output, RecipeCategory.REDSTONE, HoeBlocksRegistry.DARK_END_STONE, "dark_end_stone", HoeBlocksRegistry.DARK_END_STONE_BUTTON, 1);
     	recipeOneBlockToBlockOrItem(output, RecipeCategory.REDSTONE, HoeBlocksRegistry.DARK_END_STONE_BRICK, "dark_end_stone_brick", HoeBlocksRegistry.DARK_END_STONE_BRICK_BUTTON, 1);
 
-    	//recipeOneBlockToBlockOrItem(output, RecipeCategory.MISC, HoeBlocksRegistry.AZURIUM_BLOCK, "azurium_block", HoeItemsRegistry.AZURIUM_INGOT, 9);
+    	recipeOneBlockToBlockOrItem(output, RecipeCategory.MISC, HoeBlocksRegistry.AZURIUM_BLOCK, "azurium_block", HoeItemsRegistry.AZURIUM_INGOT, 9, "_from_block");
     	recipeOneBlockToBlockOrItem(output, RecipeCategory.MISC, HoeBlocksRegistry.MILATHIUM_BLOCK, "milathium_block", HoeItemsRegistry.MILATHIUM_INGOT, 9);
     	recipeOneBlockToBlockOrItem(output, RecipeCategory.MISC, HoeItemsRegistry.AZURIUM_INGOT, "azurium_ingot", HoeItemsRegistry.AZURIUM_NUGGET, 9);
 
     	recipeOneBlockToBlockOrItem(output, RecipeCategory.BUILDING_BLOCKS, HoeBlocksRegistry.LILAC_STEM, "lilac_stem", HoeBlocksRegistry.LILAC_PLANKS, 4);
     	recipeOneBlockToBlockOrItem(output, RecipeCategory.BUILDING_BLOCKS, HoeBlocksRegistry.LEAFY_STEM, "leafy_stem", HoeBlocksRegistry.LEAFY_PLANKS, 4);
     	
-    	//recipeOneBlockToBlockOrItem(output, RecipeCategory.BUILDING_BLOCKS, HoeBlocksRegistry.STRIPPED_LILAC_STEM, "stripped_lilac_stem", HoeBlocksRegistry.LILAC_PLANKS, 4);
-    	//recipeOneBlockToBlockOrItem(output, RecipeCategory.BUILDING_BLOCKS, HoeBlocksRegistry.STRIPPED_LEAFY_STEM, "stripped_leafy_stem", HoeBlocksRegistry.LEAFY_PLANKS, 4);
+    	recipeOneBlockToBlockOrItem(output, RecipeCategory.BUILDING_BLOCKS, HoeBlocksRegistry.STRIPPED_LILAC_STEM, "stripped_lilac_stem", HoeBlocksRegistry.LILAC_PLANKS, 4, "_from_stripped");
+    	recipeOneBlockToBlockOrItem(output, RecipeCategory.BUILDING_BLOCKS, HoeBlocksRegistry.STRIPPED_LEAFY_STEM, "stripped_leafy_stem", HoeBlocksRegistry.LEAFY_PLANKS, 4, "_from_stripped");
 
     	recipeOneBlockToBlockOrItem(output, RecipeCategory.MISC, HoeItemsRegistry.HEART_BONE, "heart_bone", Items.BONE_MEAL, 6);
 
@@ -214,8 +238,8 @@ public class HoeRecipeProvider extends RecipeProvider
 		recipeendercheststyle(output, RecipeCategory.MISC, Items.COAL, "coal", Items.BLAZE_ROD, "blaze_rod", HoeItemsRegistry.BLACK_ROD, 1);
 		recipeendercheststyle(output, RecipeCategory.BUILDING_BLOCKS, Items.COAL, "coal", Items.END_STONE, "end_stone", HoeBlocksRegistry.DARK_END_STONE, 1);
 		recipeendercheststyle(output, RecipeCategory.MISC, Items.FERMENTED_SPIDER_EYE, "fermented_spider_eye", Items.ENDER_EYE, "ender_eye", HoeItemsRegistry.DEAD_EYE, 1);
-		recipeendercheststyle(output, RecipeCategory.BUILDING_BLOCKS, Items.SOUL_SAND, "soul_sand", Items.SKELETON_SKULL, "skeleton_skull", HoeBlocksRegistry.DEAD_SOUL_SAND, 8);
-		//recipeendercheststyle(output, RecipeCategory.BUILDING_BLOCKS, Items.SOUL_SAND, "soul_sand", Items.WITHER_SKELETON_SKULL, "wither_skeleton_skull", HoeBlocksRegistry.DEAD_SOUL_SAND, 8);
+		recipeendercheststyle(output, RecipeCategory.BUILDING_BLOCKS, Items.SOUL_SAND, "soul_sand", Items.SKELETON_SKULL, "skeleton_skull", HoeBlocksRegistry.DEAD_SOUL_SAND, 8, "_from_skeleton_skull");
+		recipeendercheststyle(output, RecipeCategory.BUILDING_BLOCKS, Items.SOUL_SAND, "soul_sand", Items.WITHER_SKELETON_SKULL, "wither_skeleton_skull", HoeBlocksRegistry.DEAD_SOUL_SAND, 8, "_from_wither_skull");
 		recipeendercheststyle(output, RecipeCategory.BUILDING_BLOCKS, HoeItemsRegistry.HEART_ENDER_PORTAL_PIECE, "heart_ender_portal_piece", HoeItemsRegistry.DEAD_EYE, "dead_eye", HoeBlocksRegistry.HEART_ENDER_PORTAL_BLOCK, 1);
 		
 		recipeFlintAnd(output, HoeItemsRegistry.AZURIUM_INGOT, "azurium_ingot", HoeItemsRegistry.FLINT_AND_AZURIUM);
@@ -240,9 +264,9 @@ public class HoeRecipeProvider extends RecipeProvider
         .unlockedBy("has_end_stone", has(Items.END_STONE)).unlockedBy("has_popped_chorus_fruit", has(Items.POPPED_CHORUS_FRUIT))
         .save(output);
 		
-		//recipeFurnaceOre(HoeBlocksRegistry.AZURIUM_ORE, HoeItemsRegistry.AZURIUM_INGOT);
-		//recipeFurnaceOre(HoeBlocksRegistry.DEEPSLATE_AZURIUM_ORE, HoeItemsRegistry.AZURIUM_INGOT);
-		//recipeFurnaceOre(HoeBlocksRegistry.MILATHIUM_ORE, HoeItemsRegistry.MILATHIUM);
+		recipeFurnaceOre(output, HoeBlocksRegistry.AZURIUM_ORE, HoeItemsRegistry.AZURIUM_INGOT);
+		recipeFurnaceOre(output, HoeBlocksRegistry.DEEPSLATE_AZURIUM_ORE, HoeItemsRegistry.AZURIUM_INGOT);
+		recipeFurnaceOre(output, HoeBlocksRegistry.MILATHIUM_ORE, HoeItemsRegistry.MILATHIUM);
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(HoeBlocksRegistry.DEAD_SOUL_SAND), RecipeCategory.BUILDING_BLOCKS, HoeBlocksRegistry.DEAD_SOUL_SOIL, 0.5f, 200);
     }
 }

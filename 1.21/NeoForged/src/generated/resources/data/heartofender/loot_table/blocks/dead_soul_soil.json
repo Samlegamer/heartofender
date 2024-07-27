@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "heartofender:dead_soul_soil"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "heartofender:blocks/dead_soul_soil"
+}

@@ -1,8 +1,7 @@
-package fr.samlegamer.heartofender.features.hoe;
+package fr.samlegamer.heartofender.features;
 
 import fr.samlegamer.heartofender.block.HoeBlocksRegistry;
 import fr.samlegamer.heartofender.core.HeartofEnder;
-import fr.samlegamer.heartofender.features.HoeFeaturesRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
