@@ -7,12 +7,7 @@ import fr.samlegamer.heartofender.core.HeartofEnder;
 import fr.samlegamer.heartofender.item.HoeItemsRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -66,7 +61,7 @@ public class HoeRecipeProvider extends RecipeProvider
         .pattern("A")
         .define('A', item)
         .unlockedBy("has_"+hasitem, has(item))
-        .save(output, ResourceLocation.fromNamespaceAndPath(HeartofEnder.MODID, result.asItem().toString()+rl));
+        .save(output, ResourceLocation.parse(result.asItem().toString()+rl));
 	}
 	
 	/*Used for Bricks or Magma*/
@@ -174,14 +169,14 @@ public class HoeRecipeProvider extends RecipeProvider
         .define('A', item)
         .define('X', item2)
         .unlockedBy("has_"+hasitem, has(item)).unlockedBy("has_"+hasitem2, has(item2))
-        .save(output, ResourceLocation.fromNamespaceAndPath(HeartofEnder.MODID, result.asItem().toString()+rl));
+        .save(output, ResourceLocation.parse(result.asItem().toString()+rl));
 	}
 
 	
 	private void recipeFurnaceOre(RecipeOutput output, ItemLike item, ItemLike result)
 	{
-		SimpleCookingRecipeBuilder.smelting(Ingredient.of(item), RecipeCategory.MISC, result, 0.5f, 200).save(output, result.asItem().toString()+"_smelting");
-		SimpleCookingRecipeBuilder.blasting(Ingredient.of(item), RecipeCategory.MISC, result, 0.5f, 100).save(output, result.asItem().toString()+"_blasting");
+		SimpleCookingRecipeBuilder.smelting(Ingredient.of(item), RecipeCategory.MISC, result, 0.5f, 200).save(output, ResourceLocation.parse(result.asItem().toString()+"_smelting"));
+		SimpleCookingRecipeBuilder.blasting(Ingredient.of(item), RecipeCategory.MISC, result, 0.5f, 100).save(output, ResourceLocation.parse(result.asItem().toString()+"_blasting"));
 	}
 	
 	private void recipeFlintAnd(RecipeOutput output, ItemLike item, String hasitem, ItemLike result)
@@ -227,13 +222,8 @@ public class HoeRecipeProvider extends RecipeProvider
     	recipeSwordAndTools(output, HoeItemsRegistry.MILATHIUM_INGOT, "milathium_ingot", HoeItemsRegistry.MILATHIUM_SWORD, HoeItemsRegistry.MILATHIUM_PICKAXE, HoeItemsRegistry.MILATHIUM_AXE, HoeItemsRegistry.MILATHIUM_SHOVEL);
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, HoeItemsRegistry.HEART_BONE_SWORD)
-        .pattern("A")
-        .pattern("A")
-        .pattern("/")
-        .define('A', HoeItemsRegistry.HEART_BONE)
-        .define('/', HoeItemsRegistry.BLACK_ROD)
-        .unlockedBy("has_heart_bone", has(HoeItemsRegistry.HEART_BONE)).unlockedBy("has_black_rod", has(HoeItemsRegistry.BLACK_ROD))
-        .save(output);
+        .pattern("A").pattern("A").pattern("/").define('A', HoeItemsRegistry.HEART_BONE).define('/', HoeItemsRegistry.BLACK_ROD)
+        .unlockedBy("has_heart_bone", has(HoeItemsRegistry.HEART_BONE)).unlockedBy("has_black_rod", has(HoeItemsRegistry.BLACK_ROD)).save(output);
 
 		recipeendercheststyle(output, RecipeCategory.MISC, Items.COAL, "coal", Items.BLAZE_ROD, "blaze_rod", HoeItemsRegistry.BLACK_ROD, 1);
 		recipeendercheststyle(output, RecipeCategory.BUILDING_BLOCKS, Items.COAL, "coal", Items.END_STONE, "end_stone", HoeBlocksRegistry.DARK_END_STONE, 1);
@@ -246,27 +236,16 @@ public class HoeRecipeProvider extends RecipeProvider
 		recipeFlintAnd(output, HoeItemsRegistry.MILATHIUM_INGOT, "milathium_ingot", HoeItemsRegistry.FLINT_AND_MILATHIUM);
 		
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, HoeBlocksRegistry.HEROBRINE_HEAD, 1)
-        .pattern("AAA")
-        .pattern("XTX")
-        .pattern("TTT")
-        .define('A', Items.BROWN_TERRACOTTA)
-        .define('X', Items.NETHER_STAR)
-        .define('T', Items.TERRACOTTA)
-        .unlockedBy("has_brown_terracotta", has(Items.BROWN_TERRACOTTA)).unlockedBy("has_nether_star", has(Items.NETHER_STAR)).unlockedBy("has_terracotta", has(Items.TERRACOTTA))
-        .save(output);
+        .pattern("AAA").pattern("XTX").pattern("TTT").define('A', Items.BROWN_TERRACOTTA).define('X', Items.NETHER_STAR).define('T', Items.TERRACOTTA)
+        .unlockedBy("has_brown_terracotta", has(Items.BROWN_TERRACOTTA)).unlockedBy("has_nether_star", has(Items.NETHER_STAR)).unlockedBy("has_terracotta", has(Items.TERRACOTTA)).save(output);
 		
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, HoeItemsRegistry.HEART_ENDER_PORTAL_PIECE, 1)
-        .pattern("AAA")
-        .pattern("XXX")
-        .pattern("AAA")
-        .define('A', Items.END_STONE)
-        .define('X', Items.POPPED_CHORUS_FRUIT)
-        .unlockedBy("has_end_stone", has(Items.END_STONE)).unlockedBy("has_popped_chorus_fruit", has(Items.POPPED_CHORUS_FRUIT))
-        .save(output);
+        .pattern("AAA").pattern("XXX").pattern("AAA").define('A', Items.END_STONE).define('X', Items.POPPED_CHORUS_FRUIT)
+        .unlockedBy("has_end_stone", has(Items.END_STONE)).unlockedBy("has_popped_chorus_fruit", has(Items.POPPED_CHORUS_FRUIT)).save(output);
 		
-		recipeFurnaceOre(output, HoeBlocksRegistry.AZURIUM_ORE, HoeItemsRegistry.AZURIUM_INGOT);
-		recipeFurnaceOre(output, HoeBlocksRegistry.DEEPSLATE_AZURIUM_ORE, HoeItemsRegistry.AZURIUM_INGOT);
-		recipeFurnaceOre(output, HoeBlocksRegistry.MILATHIUM_ORE, HoeItemsRegistry.MILATHIUM);
+		//recipeFurnaceOre(output, HoeBlocksRegistry.AZURIUM_ORE, HoeItemsRegistry.AZURIUM_INGOT);
+		//recipeFurnaceOre(output, HoeBlocksRegistry.DEEPSLATE_AZURIUM_ORE, HoeItemsRegistry.AZURIUM_INGOT);
+		//recipeFurnaceOre(output, HoeBlocksRegistry.MILATHIUM_ORE, HoeItemsRegistry.MILATHIUM);
 		SimpleCookingRecipeBuilder.smelting(Ingredient.of(HoeBlocksRegistry.DEAD_SOUL_SAND), RecipeCategory.BUILDING_BLOCKS, HoeBlocksRegistry.DEAD_SOUL_SOIL, 0.5f, 200);
     }
 }

@@ -1,21 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skeleton_skull": {
+    "has_stripped_leafy_stem": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:skeleton_skull"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_soul_sand": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:soul_sand"
+            "items": "heartofender:stripped_leafy_stem"
           }
         ]
       },
@@ -23,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "heartofender:dead_sand"
+        "recipe": "heartofender:leafy_planks_from_stripped"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,13 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_soul_sand",
-      "has_skeleton_skull"
+      "has_stripped_leafy_stem"
     ]
   ],
   "rewards": {
     "recipes": [
-      "heartofender:dead_sand"
+      "heartofender:leafy_planks_from_stripped"
     ]
   }
 }

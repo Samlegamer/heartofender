@@ -1,4 +1,4 @@
-// 1.21	2024-07-24T16:57:05.9204404	Loot Tables
+// 1.21	2024-07-30T14:07:42.4198961	Loot Tables
 9b501dc8f7443fc3566e1120d1aa2947d7daecc3 data/heartofender/loot_table/blocks/azurium_block.json
 0e8f80fab3c81477906630d2b97705c50ec65451 data/heartofender/loot_table/blocks/azurium_ore.json
 b055fafd5e44c37d2a1106af2598c79bc0ac0e2e data/heartofender/loot_table/blocks/blue_magma_block.json
@@ -58,7 +58,7 @@ c413330c3948f47e0ab068b54a5c769735c728ad data/heartofender/loot_table/blocks/lil
 a022ae104c7302c286f8d97130d576d35a55d61b data/heartofender/loot_table/blocks/lilac_weeping_vines_plant.json
 7208d783bbefba4409ae9a1df13720715e04d7af data/heartofender/loot_table/blocks/milathium_block.json
 4a753ea80b0b122fbb9fab7d6cc43a00f90eab16 data/heartofender/loot_table/blocks/milathium_ore.json
-6465e747cd0e93fb1189bc733fdd1b552dab40ee data/heartofender/loot_table/blocks/purple_campfire.json
+26cda8505a07d875674a4a14825f6dddf2f0d4b9 data/heartofender/loot_table/blocks/purple_campfire.json
 fb3f27cfa3d9414aca7eda5096dd28c9a5e5c47e data/heartofender/loot_table/blocks/purple_fire.json
 a629c64c539d1daeae6cd2ede558d679c343a2a7 data/heartofender/loot_table/blocks/purple_glowstone.json
 7356abde67e3bfdddbb3ba6757ff74461ff32520 data/heartofender/loot_table/blocks/purple_lantern.json

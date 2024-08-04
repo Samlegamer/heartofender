@@ -29,7 +29,7 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 public class HeartofEnder
 {
 	public static final String MODID = "heartofender";
-	private static final Logger LOGGER = LogManager.getLogger();
+	public static final Logger LOGGER = LogManager.getLogger();
 
 	public HeartofEnder(IEventBus bus, ModContainer modContainer)
 	{
@@ -47,6 +47,8 @@ public class HeartofEnder
 		//HoePOI.REGISTRY_POI.register(bus);
 		HoeFluidsRegistry.REGISTRY_FLUIDS.register(bus);
 		HoeFeaturesRegistry.REGISTRY_FEATURES.register(bus);
+		//HoeFeaturesRegistry.CONFIGURED_FEATURES.register(bus);
+		//HoeFeaturesRegistry.PLACED_FEATURES.register(bus);
 		HoeBlockEntityRegistry.REGISTRY_BLOCK_ENTITY.register(bus);
 		//HoePotionRegisty.REGISTRY_POTIONS.register(bus);
 		HoeTabs.REGISTRY_TABS.register(bus);

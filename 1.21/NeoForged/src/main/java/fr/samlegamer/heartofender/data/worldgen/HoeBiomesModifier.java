@@ -1,5 +1,6 @@
 package fr.samlegamer.heartofender.data.worldgen;
 
+import fr.samlegamer.heartofender.config.HoeConfigsRegistry;
 import fr.samlegamer.heartofender.core.HeartofEnder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
@@ -17,20 +18,24 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 public class HoeBiomesModifier
 {
-    protected static ResourceKey<BiomeModifier> ADD_EXAMPLE_ORE = createKey("add_example_ore");
+    protected static ResourceKey<BiomeModifier> ADD_AZURIUM_ORE = createKey("add_azurium_ore");
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         HolderGetter<Biome> biomes = context.lookup(Registries.BIOME);
 
+        if(HoeConfigsRegistry.SERVER.generateAzuriumOre.get())
+        {
+
         context.register(
-                ADD_EXAMPLE_ORE,
+        		ADD_AZURIUM_ORE,
                 new BiomeModifiers.AddFeaturesBiomeModifier(
                         biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                        HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.EXAMPLE_ORE)),
+                        HolderSet.direct(placedFeatures.getOrThrow(HoePlacedFeatures.AZURIUM_ORE)),
                         GenerationStep.Decoration.UNDERGROUND_ORES
                 )
         );
+        }
     }
 
     private static ResourceKey<BiomeModifier> createKey(String name) {
